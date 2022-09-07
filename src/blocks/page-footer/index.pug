@@ -1,0 +1,24 @@
+mixin page-footer(mods)
+  -
+    let allMods = '';
+    if (typeof (mods) !== 'undefined' && mods) {
+      let regExp = /\s*,\s*/;
+      let modsList = mods.split(regExp);
+      allMods = modsList.join(' ');
+    }
+
+  footer.page-footer(class=allMods)
+    .page-footer__top
+      .page-container.page-footer__top-inner
+        .page-footer__top-item.page-footer__top-item--logo
+          img(src="images/logo.svg")
+        .page-footer__top-item.page-footer__top-item--menu
+          include ../footer-menu/index
+        .page-footer__top-item.page-footer__top-item--contacts
+          include ../address/index
+        
+    .page-footer__bottom
+      .page-container.page-footer__bottom-inner
+        .page-footer__bottom-item.page-footer__bottom-item--copy © IESA 2021 - Услуги по созданию и продвижению сайтов
+        .page-footer__bottom-item 
+          p: a(href="#") Политика конфиденциальности

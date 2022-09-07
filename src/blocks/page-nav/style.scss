@@ -1,0 +1,29 @@
+.page-nav {
+  &__inner {
+    padding-top: 0.75em;
+    padding-bottom: 0.75em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+  }
+  &__logo {
+    display: none;
+    img {
+      display: block;
+      width: 123px;
+    }
+    @media (min-width: $screen-md) {
+      display: block;
+    }
+  }
+  &__menu {
+    margin-left: auto;
+  }
+  &__search {
+    display: none;
+    @media (min-width: $screen-md) {
+      display: block;
+    }
+  }
+}

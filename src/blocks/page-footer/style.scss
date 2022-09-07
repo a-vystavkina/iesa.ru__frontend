@@ -1,0 +1,146 @@
+.page-footer {
+
+	$block-name: &; // #{$block-name}__element
+
+	color: var(--color-white);
+	font-size: var(--font-size--small);
+
+	& a {
+		color: var(--color-white);
+
+		&:hover {
+			color: var(--color-primary--light);
+		}
+	}
+
+  &__top {
+    position: relative;
+    background-color: var(--color-primary--darken);
+    padding: 22px 0 32px;
+
+    &-inner {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &-item {
+      &--logo {
+        img {
+          display: block;
+          width: 123px;
+          margin: 0 auto;
+        }
+        margin-bottom: 2.5em;
+      }
+
+      &--menu {
+        display: none;
+      }
+
+      &--contacts {
+        
+      }
+    }
+  }
+
+	&__bottom {
+		background-color: var(--color-primary);
+		padding: 12px 0 13px 0;
+
+		&-inner {
+			display: flex;
+			flex-direction: column;
+      text-align: center;
+		}
+
+		&-item {
+			line-height: 1.5;
+			margin: 0 auto;
+
+			&--copy {
+				font-weight: 500;
+				margin-bottom: 0.75em;
+        width: 217px;
+			}
+
+			& p {
+				margin: 0;
+			}
+		}
+	}
+
+	@media (min-width: $screen-md) {
+    &__top {
+      padding: 42px 0 46px;
+  
+      &-inner {
+        flex-direction: row;
+        align-items: flex-start;
+      }
+
+      &-item {
+        &--logo {
+          img {
+            margin: 0;
+          }
+          margin-bottom: 0;
+					margin-right: 64px;
+        }
+  
+        &--menu {
+          display: block;
+        }
+  
+        &--contacts {
+          position: absolute;
+					bottom: 7px;
+					right: 25px;
+        }
+      }
+    }
+
+		&__bottom {
+			padding: 14px 0 13px;
+
+			&-inner {
+				display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        text-align: justify;
+			}
+
+			&-item {
+				margin: 0;
+
+				&--logo {
+					margin-right: 0;
+        }
+
+				&--copy {
+          font-weight: 500;
+          margin-bottom: 0;
+          width: 100%;
+        }
+
+        & p {
+          width: 250px;
+        }
+			}
+		}
+	}
+
+	@media (min-width: $screen-lg) {
+    &__top {
+			&-inner {
+        justify-content: space-between;
+      }
+
+      &-item {
+        &--contacts {
+          position: static;
+        }
+      }
+    }
+	}
+}

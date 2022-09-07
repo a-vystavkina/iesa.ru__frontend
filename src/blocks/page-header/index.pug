@@ -1,0 +1,25 @@
+mixin page-header(mods)
+  -
+    let allMods = '';
+    if (typeof (mods) !== 'undefined' && mods) {
+      let regExp = /\s*,\s*/;
+      let modsList = mods.split(regExp);
+      allMods = modsList.join(' ');
+    }
+
+  header.page-header(class=allMods)
+      .page-container.page-header__inner
+        .page-header__phones
+          include ../phones/index
+        .page-header__order
+          button.button.button--not-fill
+      hr
+      .page-container.page-header__inner-bottom
+        .page-header__logo
+          picture
+            img(src="images/logo.svg", width="123", height="35" alt="")
+        .page-header__burger
+          include ../header-burger/index
+        .page-header__search
+          include ../header-search/index
+      +page-nav('page__nav')

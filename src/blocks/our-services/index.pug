@@ -1,0 +1,26 @@
+-
+	let dataAchievements = [
+		{
+			"title": 'Продвижение сайтов',
+			"price": 'от 63 000 руб.',
+			"image": "assets/promotion-sites.png"
+		},
+		{
+			"title": 'Оптимизация сайтов',
+			"price": 'от 26 200 руб.',
+			"image": "assets/optimization-sites.png"
+		},
+		{
+			"title": 'SEO-аудиты сайтов',
+			"price": 'от 31 300 руб.',
+			"image": "assets/seo-audit.png"
+		}
+	]
+.tile-slider.tile-slider--place-shadow.our-services(data-flickity-options='{ "cellAlign": "left", "prevNextButtons": true, "groupCells": true, "watchCSS": true, "lazyLoad": true }')
+	each item, i in dataAchievements
+		.our-services__item
+			.our-services__title !{item.title}
+			.our-services__price !{item.price}
+			if (item.image)
+				.our-services__img
+					img(src=item.image)

@@ -1,0 +1,68 @@
+-
+  let data = {
+    "level": "1",
+    "items": [
+      {
+        "title": "Компания",
+        "submenu": {
+          "level": "2",
+          "submenuWrap": true,
+          "cssMod": "full-width",
+          "items": [
+            {"title": "О компании"},
+            {"title": "Портфолио"},
+            {"title": "Отзывы"},
+            {"title": "Контакты"}
+          ]
+        },
+      },
+      {
+        "title": "Услуги",
+        "submenu": {
+          "level": "2",
+          "submenuWrap": true,
+          "items": [
+            {
+              "title": "Продвижение сайтов",
+              "submenu": {
+                "level": "3",
+                "submenuWrap": true,
+                "items": [
+                  { "title": "Трафик" },
+                  { "title": "Лиды" },
+                  { "title": "Недорогое SEO" },
+                  { "title": "Интернет-магазины" },
+                  { "title": "Молодые сайты" },
+                  { "title": "Сайты на Битрикс" },
+                  { "title": "Комплексное SEO" },
+                  { "title": "Оптимизация" }
+                ]
+              }
+            }
+          ]
+        },
+      },
+      {
+        "title": "Услуги",
+        "colorFront": true,
+        "submenu": {
+          "level": "2",
+          "items": [
+            {
+              "title": "SEO-аудит",
+              "submenu": {
+                "level": "3",
+                "items": [
+                  { "title": "Коммерческий аудит" },
+                  { "title": "Технический аудит" },
+                  { "title": "Юзабилити-аудит" }
+                ]
+              }
+            }
+          ]
+        },
+      }
+    ]
+  };
+
++menu(data, 'footer-menu')

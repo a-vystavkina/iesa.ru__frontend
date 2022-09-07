@@ -1,0 +1,60 @@
+.tile-slider {
+	$block-name: &; // #{$block-name}__element
+
+	&.flickity-enabled {
+		padding-bottom: 2em;
+	}
+
+	&::after {
+		content: 'flickity';
+		display: none;
+	}
+
+	& .flickity-viewport {
+		transition: var(--transition-time);
+	}
+
+	& .flickity-prev-next-button {
+		display: none;
+	}
+
+	& .flickity-page-dots {
+		display: none;
+	}
+
+	&:not(.is-draggable) .flickity-prev-next-button,
+	&:not(.is-draggable) .flickity-page-dots {
+		display: none;
+	}
+
+	& .flickity-prev-next-button[disabled] + .flickity-prev-next-button[disabled] + .flickity-page-dots {
+		display: none;
+	}
+
+	@media (min-width: $screen-lg) {
+		&::after {
+			content: '';
+		}
+
+		&--place-shadow {
+
+			&.flickity-enabled {
+				padding-bottom: 0;
+
+				& .flickity-viewport {
+					box-sizing: content-box;
+					margin: 0 -15px;
+					padding: 0 0 calc(var(--grid-gutter-y) * 2) 0;
+				}
+
+				& .flickity-slider {
+					box-sizing: border-box;
+					height: calc(100% - var(--grid-gutter-y) * 2);
+					margin-left: 15px;
+					margin-right: 15px;
+					width: calc(100% - 30px);
+				}
+			}
+		}
+	}
+}

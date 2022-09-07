@@ -1,0 +1,29 @@
+extends ../layout.pug
+
+block meta
+  title Главная
+  meta(name='description', content='')
+
+block content
+  include ../../blocks/main-slider/index
+
+  .wide-block.wide-block--gray-lighter
+    .page-container
+      h2 Наши услуги
+      include ../../blocks/our-services/index
+  
+  .wide-block.wide-block--primary-light
+    .page-container__form
+      h2
+        | Продвижение на особых условиях 
+        p.-c-primary за заявку, отправленную прямо здесь и сейчас
+      include ../../blocks/form/index
+  .wide-block.-no-padding-bottom
+    .page-container
+      h2.-ta-c
+        | Тарифы
+      include ../../blocks/table-compare/index
+  .wide-block
+    .page-container
+      h2
+        | Наши кейсы

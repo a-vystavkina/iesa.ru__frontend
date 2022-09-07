@@ -1,0 +1,120 @@
+.form-short {
+	$block-name: &; // #{$block-name}__element
+
+	&:not(:first-child) {
+		margin-top: var(--blocks-margin-vertical);
+	}
+
+	&:not(:last-child) {
+		margin-bottom: var(--blocks-margin-vertical);
+	}
+
+	&__field {
+		display: block;
+
+		& + & {
+			margin-top: var(--typo-margin-vertical);
+		}
+
+		@media (min-width: $screen-lg) {
+			&--button {
+				text-align: center;
+			}
+		}
+	}
+
+  &__item {
+    margin-bottom: 18px;
+    @media (min-width: $screen-lg) {
+      display: flex;
+      align-items: center;
+      
+      .form-short__field {
+        margin-top: 0;
+        margin-right: 8px;
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+
+  .field-text {
+    color: rgba(255, 255, 255, 0.47);
+    &__input {
+      background: rgba(41, 146, 208, 0.5);
+      border: 1px solid var(--color-white);
+      padding: 0.75em 0 0.75em 1em;
+    }
+  }
+
+	&--flex form {
+
+		@media (min-width: $screen-md) {
+			display: flex;
+			flex-wrap: wrap;
+			gap: calc(var(--grid-gutter-y) * 2) var(--grid-gutter-x);
+
+			& #{$block-name}__field {
+				--width: calc(50% - var(--grid-gutter-x) / 2);
+				flex: 0 0 var(--width);
+				max-width: var(--width);
+
+				& + #{$block-name}__field {
+					margin-top: 0;
+				}
+			}
+		}
+
+		@media (min-width: $screen-lg) {
+			& #{$block-name}__field {
+				--width: calc(33.33333% - var(--grid-gutter-x) * 2 / 3);
+			}
+		}
+	}
+
+  .field-checkbox {
+    &__input-wrap {
+      display: flex;
+      align-items: center;
+    }
+    
+    &__input {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+    }
+  
+    &__help-text {
+      font-size: var(--font-size--tiny);
+      color: var(--color-white);
+      font-weight: 400;
+      line-height: 1.25;
+      & a {
+        color: inherit;
+      }
+  
+      &::before {
+        content: "";
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 10px;
+        width: 20px;
+        height: 20px;
+        background-image: url(../../blocks/form-short/images/checkbox-no-active.png);
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: 20px;
+      }
+  
+      @media (min-width: $screen-lg) {
+        width: 55%;
+      }
+    }
+  }
+  
+  .field-checkbox__input:checked ~ .field-checkbox__help-text::before {
+    background-image: url(../../blocks/form-short/images/checkbox-active.jpg);
+  }
+}

@@ -1,0 +1,80 @@
+-
+	let data = {
+		"level": "1",
+		"items": [
+			{
+				"title": "Главная",
+				"dropdownBtn": false
+			},
+			{
+				"title": "Услуги",
+				"iconID": "icon-menu",
+				"dropdownBtn": true,
+				"submenu": {
+					"level": "2",
+					"submenuWrap": true,
+					"cssMod": "full-width",
+					"items": [
+						{
+							"title": "SEO-аудит",
+							"dropdownBtn": true,
+							"submenu": {
+								"level": "3",
+								"submenuWrap": true,
+								"items": [
+									{ "title": "Коммерческий аудит" },
+									{ "title": "Технический аудит" },
+									{ "title": "Юзабилити-аудит" }
+								]
+							}
+						},
+						{
+							"title": "Продвижение сайтов",
+							"dropdownBtn": true,
+							"submenu": {
+								"level": "3",
+								"submenuWrap": true,
+								"items": [
+									{ "title": "Продвижение сайта по лидам" },
+									{ "title": "Продвижение интернет-магазинов" },
+									{ "title": "Комплексное продвижение сайтов" },
+									{ "title": "Продвижение сайтов на Битриксе" },
+									{ "title": "Недорогое продвижение сайтов" },
+									{ "title": "SEO-оптимизация сайтов" },
+									{ "title": "Продвижение молодых сайтов" },
+									{ "title": "Продвижение сайта по трафику" },
+									{ "title": "Продвижение сайтов в ТОП" }
+								]
+							}
+						},
+					]
+				}
+			},
+			{
+				"title": "Блог",
+				"dropdownBtn": false
+			},
+			{
+				"title": "О компании",
+				"iconID": "icon-menu",
+				"dropdownBtn": true,
+				"submenu": {
+					"level": "2",
+					"submenuWrap": true,
+					"cssMod": "full-width",
+					"items": [
+						{
+							"title": "Отзывы",
+							"dropdownBtn": false
+						}
+					]
+				}
+			},
+			{
+				"title": "Контакты",
+				"dropdownBtn": false
+			}
+		]
+	};
+
++menu(data, 'main-menu')
