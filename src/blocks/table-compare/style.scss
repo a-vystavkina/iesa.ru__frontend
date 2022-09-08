@@ -6,7 +6,6 @@
 	border-collapse: collapse;
 	width: 100%;
 	table-layout: fixed;
-	font-size: var(--font-size--medium);
 
 	&:not(:first-child) {
 		margin-top: var(--blocks-margin-vertical);

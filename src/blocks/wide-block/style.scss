@@ -26,6 +26,10 @@
 		background-color: var(--color-gray--lighten);
 	}
 
+  &--gradient {
+		background-color: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 29.13%);
+	}
+
   &--man {
     background-image: url(../../blocks/wide-block/images/man-small.jpg);
     background-color: var(--color-primary);
@@ -47,6 +51,17 @@
 
     @media (min-width: $screen-xl) {
         background-image: url(../../blocks/wide-block/images/man-large.jpg);
+    }
+  }
+
+  &--cases-fon {
+    background-image: url(../../blocks/wide-block/images/cases-fon.jpg);
+    background-repeat: no-repeat;
+
+    & .page-container,
+    & .page-container__inner {
+        height: 100%;
+        position: relative;
     }
   }
 

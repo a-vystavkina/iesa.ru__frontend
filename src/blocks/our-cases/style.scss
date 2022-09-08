@@ -1,0 +1,40 @@
+.our-cases {
+  display: block;
+  &__info {
+    font-weight: 300;
+    font-size: var(--font-size--vast);
+    line-height: 1.35;
+    text-align: center;
+    margin-bottom: 2.5em;
+  }
+  &__img {
+    background-color: var(--color-white);
+    border-left: 10px solid var(--color-mint);
+    box-shadow: 0px 20px 50px rgba(18, 17, 39, 0.08);
+    border-radius: 20px;
+    padding: 1em 0.5em;
+  }
+  @media (min-width: $screen-md) {
+    &__info {
+      text-align: left;
+    }
+    &__img {
+      border-left: 15px solid var(--color-mint);
+    } 
+  }
+  @media (min-width: $screen-xl) {
+    display: flex;
+    align-items: center;
+    &__info {
+      flex: 1 0 40%;
+      margin-right: 5%;
+      margin-bottom: 0;
+    }
+    &__img {
+      flex: 0 0 60%;
+			margin-top: 0;
+			max-width: 60%;
+      padding: 2em 1.5em;
+    }
+  }
+}
