@@ -1,4 +1,4 @@
-.tile-slider {
+.case-slider {
 	$block-name: &; // #{$block-name}__element
 
 	&.flickity-enabled {
@@ -16,25 +16,55 @@
 
 	& .flickity-prev-next-button {
 		background: none;
-		bottom: 0;
+		bottom: -30px;
 		height: 1.5em;
 		padding: 0;
 		top: auto;
 		transform: translateY(50%);
 		width: 1.5em;
 		z-index: 6;
+		&.previous,
+		&.next {
+			background: var(--color-primary--darken);
+			box-shadow: 0px 32px 84px rgba(14, 86, 124, 0.165308);
+			border: 1px solid var(--color-primary--darken);
+			width: 32px;
+			height: 32px;
+		}
+		&.previous {
+			right: 0;
+			left: 35%;
+			transform: translateX(50%);
+			@media (min-width: $screen-md) {
+			  left: 89%;
+			}
+			@media (min-width: $screen-lg) {
+			  left: 93%;
+			}
+		}
+		&.next {
+			right: 40%;
+			transform: translateX(50%);
+			@media (min-width: $screen-md) {
+			  right: 2%;
+			}
+			@media (min-width: $screen-lg) {
+			  right: 0;
+			}
+		}
 
 		& svg {
-			fill: var(--color-gray--light);
-			height: 100%;
+			fill: var(--color-white);
+			height: 50%;
 			left: 0;
 			top: 0;
-			width: 100%;
+			transform: translate(50%, 50%);
+			width: 50%;
 		}
 	}
 
 	& .flickity-page-dots {
-		display: none;
+    display: none;
 	}
 
 	&:not(.is-draggable) .flickity-prev-next-button,
@@ -44,6 +74,17 @@
 
 	& .flickity-prev-next-button[disabled] + .flickity-prev-next-button[disabled] + .flickity-page-dots {
 		display: none;
+	}
+
+	@media (min-width: $screen-md) {
+		// &.flickity-prev-next-button.previous {
+		// 	left: 10px;
+		// 	bottom: 0;
+		// }
+
+		// &.flickity-page-dots {
+    //   display: none;
+		// }
 	}
 
 	@media (min-width: $screen-lg) {
@@ -57,7 +98,7 @@
 				padding-bottom: 0;
 
 				& .flickity-viewport {
-					box-sizing: content-box;
+					box-sizing: border-box;
 					margin: 0 -15px;
 					padding: 0 0 calc(var(--grid-gutter-y) * 2) 0;
 				}
