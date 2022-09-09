@@ -152,3 +152,35 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 })
+
+
+//Расчет круга для блока "Наши преимущества"
+$(function() {
+    'use strict';
+    
+    const $circle = $('.js-circle');
+    const agle = 360 / $circle.length;
+    let agleCounter = 1;
+    
+    $circle.each(function() {
+      let $this = $(this);
+      //расчет ширины в процентах
+      let percentWidth = (100 * parseFloat($this.css('width')) / parseFloat($this.parent().css('width')));
+      
+      let curAgle = agleCounter * agle; // текущий угол
+      let radAgle = curAgle * Math.PI / 180; // перевод в радианы
+      
+      //Расчет ведется в %
+      //(<центр внеш. круга> + ((<радиус внеш. круга> - <радиус внут. круга>) * Math.cos(radAgle))) - (<т.к. координаты начинаются от нижнего левого угла, вычитаем радиус внут. круга, что бы позиционирование шло по центру внут. круга>)
+
+      let x = (50 + ((50 - (percentWidth / 2)) * Math.sin(radAgle))) - (percentWidth / 2);
+      let y = (50 + ((50 - (percentWidth / 2)) * Math.cos(radAgle))) - (percentWidth / 2);
+          
+      $this.css({
+        left: x + '%',
+        bottom: y + '%'
+      });
+      
+      agleCounter++;
+    });
+  });

@@ -44,6 +44,7 @@
     "animejs": "^3.2.1",
     "flickity": "^3.0.0",
     "flickity-fade": "^2.0.0",
+    "nib": "^1.2.0",
     "normalize.css": "^8.0.1",
     "wow.js": "^1.2.2"
   }

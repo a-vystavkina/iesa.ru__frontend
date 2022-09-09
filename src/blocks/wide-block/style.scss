@@ -27,7 +27,8 @@
 	}
 
   &--gradient {
-		background-color: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 29.13%);
+		background: linear-gradient(0deg, #ECF4FD, #ECF4FD);
+    box-shadow: 0px -3px 76px #FFFFFF;
 	}
 
   &--man {
