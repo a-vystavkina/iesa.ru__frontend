@@ -22,6 +22,8 @@
 	}
 }
 
+.-no-tt {text-transform: none;}
+
 .-fs-tiny { font-size: var(--font-size--tiny) }
 .-fs-small { font-size: var(--font-size--small) }
 .-fs-medium { font-size: var(--font-size--medium) }
@@ -31,6 +33,7 @@
 .-no-margin { margin: 0; }
 .-no-padding { padding: 0; }
 .-no-padding-bottom { padding-bottom: 0 !important; }
+.-no-padding-top { padding-top: 0 !important; }
 .-half-padding-top { padding-top: 1rem !important; }
 .-half-padding-bottom { padding-bottom: 2rem !important; }
 

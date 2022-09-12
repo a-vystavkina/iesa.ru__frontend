@@ -4,6 +4,7 @@ import pkg from 'gulp';
 const { gulp, src, dest, watch, lastRun, parallel, series } = pkg
 
 import browserSync      from 'browser-sync'
+import del              from 'del'
 import pug              from 'gulp-pug'
 
 import gulpSass         from 'gulp-sass'
@@ -39,6 +40,7 @@ const config = {
     },
     webpack: {
         mode: 'production',
+        //devtool: mode === 'development' ? 'inline-source-map' : false,
         module: {
             rules: [
                 {
@@ -118,6 +120,9 @@ function compileSass() {
         debug({title: 'Compiles '}),
         replace(/..\/..\/blocks\/([a-zA-Z0-9_-]+)\/images\/([a-zA-Z0-9_-]+).([a-zA-Z0-9_-]+)/g, '../images/blocks/$1/$2.$3'),
         debug({title: 'Replaces path to image '}),
+        /** TODO: autoprefixer сыпет ошибки в конечный css - надо разобрать их и вернуть */
+        //debug({title: 'Add browser prefix '}),
+        //autoprefixer(config.autoprefixer),
         cleancss( {...config.cleancss, format: 'beautify'} ),
         rename({ basename: 'main' }),
         debug({title: 'Renames '}),
@@ -140,6 +145,10 @@ function compileSassWin1251() {
         replace('@charset "UTF-8";', ''),
         replace('🡐 ', '\\1F850\\0020'),
         replace(' 🡒', '\\0020\\1F852'),
+        /** TODO: autoprefixer сыпет ошибки в конечный css - надо разобрать их и вернуть */
+        //debug({title: 'Add browser prefix '}),
+        //autoprefixer(config.autoprefixer),
+        //cleancss( {...config.cleancss, format: 'beautify'} ),
         rename({ basename: 'main-1251' }),
         debug({title: 'Renames '}),
         convertEncoding({to: 'windows-1251'}),
@@ -186,10 +195,12 @@ function compileJsWin1251() {
 function compileLibsJs() {
     return multipipe(
         src([
+            //'node_modules/@fancyapps/ui/dist/fancybox.umd.js',
             'node_modules/flickity/dist/flickity.pkgd.min.js',
             'node_modules/flickity-fade/flickity-fade.js',
             'node_modules/wow.js/dist/wow.min.js',
             'node_modules/choices.js/public/assets/scripts/choices.min.js',
+            //'node_modules/animejs/lib/anime.min.js',
             'node_modules/@popperjs/core/dist/umd/popper.min.js',
             'node_modules/tippy.js/dist/tippy-bundle.umd.min.js',
         ]),
@@ -203,6 +214,7 @@ function compileLibsSass() {
         src([
             'node_modules/normalize.css/normalize.css',
             'node_modules/animate.css/animate.css',
+            //'node_modules/@fancyapps/ui/dist/fancybox.css',
             'node_modules/flickity/dist/flickity.css',
             'node_modules/flickity-fade/flickity-fade.css',
             'node_modules/choices.js/public/assets/styles/choices.min.css',
