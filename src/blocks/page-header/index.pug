@@ -8,18 +8,20 @@ mixin page-header(mods)
     }
 
   header.page-header(class=allMods)
-      .page-container.page-header__inner
-        .page-header__phones
-          include ../phones/index
-        .page-header__order
-          button.button.button--not-fill
-      hr
-      .page-container.page-header__inner-bottom
-        .page-header__logo
-          picture
-            img(src="images/logo.svg", width="123", height="35" alt="")
-        .page-header__burger
-          include ../header-burger/index
-        .page-header__search
-          include ../header-search/index
+    .page-container.page-header__inner
+      .page-header__phones
+        include ../phones/index
+      .page-header__order
+        button.button.button--not-fill.button--small
+          <svg class="svg-icon" width="12" height="12"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-chat"></use></svg>
+        button.button.button--not-fill.button--large Консультация
+    .page-header__inner--hr
+    .page-container.page-header__inner-bottom
+      .page-header__logo
+        picture
+          img(src="images/logo.png", width="123", height="35" alt="")
       +page-nav('page__nav')
+      .page-header__search
+        include ../header-search/index
+      .page-header__burger
+        include ../header-burger/index

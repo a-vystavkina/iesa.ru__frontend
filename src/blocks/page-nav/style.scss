@@ -1,30 +1,54 @@
 .page-nav {
-  box-shadow: inset 0 -7px 5px -10px rgba(0, 0, 0, .5);
-  &__inner {
-    padding-top: 0.75em;
-    padding-bottom: 1.25em;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
 
+  .page-container {
+    padding-left: 0;
+    padding-right: 0;
   }
+
+  &__inner {
+  }
+
   &__logo {
     display: none;
+
     img {
       display: block;
       width: 123px;
     }
+
     @media (min-width: $screen-md) {
       display: block;
     }
   }
+
   &__menu {
-    margin-left: auto;
+
   }
+
   &__search {
     display: none;
+    
     @media (min-width: $screen-md) {
       display: block;
+    }
+  }
+
+  @media (min-width: $screen-md) {
+    .page-container {
+      padding-left: var(--grid-gutter);
+      padding-right: var(--grid-gutter);
+    }
+
+    &__inner {
+      // padding-top: .75em;
+      // padding-bottom: 1.25em;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    &__menu {
+      margin-left: auto;
     }
   }
 }

@@ -1,4 +1,4 @@
-.our-services {
+.services {
 
 	$block-name: &; // #{$block-name}__element
 
@@ -7,39 +7,48 @@
 		border-radius: .625em;
 		display: flex;
 		flex-direction: column;
+		flex-grow: 0;
 		margin-right: calc(var(--grid-gutter-x) + 1px);
-		padding: 1em 0 0 0.75em;
+		padding: 1em 0 0 .75em;
 		transition: var(--transition-time);
-		height: 325px;
+		width: calc(70% - var(--grid-gutter) / 2);
+		margin-right: 10px;
+
 		&:last-child {
 			margin-right: 0;
+		}
+
+		&:hover {
+			box-shadow: var(--shadow);
 		}
 	}
 
 	&__title {
-		margin-bottom: 0.75em;
+		margin-bottom: .75em;
 		width: 150px;
 		font-size: var(--font-size-h3);
+		font-weight: 500;
 		line-height: 1.35;
 	}
 
 	&__price {
-		font-size: var(--font-size--large);
+		font-size: var(--font-size--medium);
 		color: var(--color-primary);
 		line-height: 1.8;
 		font-weight: 700;
 		border-radius: 6em;
 		background-color: var(--color-primary--lighter);
-		padding: 0.25em 1em;
-		width: 180px;
+		padding: .25em 0 .25em .25em;
+		width: 120px;
 		margin-bottom: 1.5em;
 	}
 
 	&__img {
-		align-items: center;
+		align-items: flex-end;
 		display: flex;
-		justify-content: center;
+		justify-content: flex-end;
 		width: 100%;
+
 		img {
 			border-bottom-right-radius: .625em;
 			height: 172px;
@@ -48,11 +57,14 @@
 	}
 
 	@media (min-width: $screen-md) {
+		display: flex;
+	  justify-content: center;
+	  align-items: center;
+
 		&__item {
-			width: calc(32% - var(--grid-gutter-x) * 2/3);
-			height: 372px;
-			margin-right: 24px;
-			padding: 1.5em 0 0 1.5em;
+			min-height: auto;
+			width: auto;
+			margin-right: 20px;
 		}
 
 		&__title {
@@ -62,9 +74,12 @@
 
 		&__price {
 			margin-bottom: 1.5em;
+			padding: .25em 0 .25em 1em;
+		  width: 150px;
 		}
 
 		&__img {
+
 			img {
 				height: 208px;
 				width: 243px;
@@ -73,13 +88,9 @@
 	}
 
 	@media (min-width: $screen-lg) {
-    display: flex;
-		justify-content: center;
-		align-items: center;
+
 		&__item {
-			width: auto;
-			box-shadow: 0px 20px 50px rgba(18, 17, 39, 0.08);
-			height: 370px;
+			margin-right: 2em;
 		}
 
 		&__title {
@@ -91,6 +102,7 @@
 		}
 
 		&__img {
+			
 			img {
         height: 180px;
 				width: 200px;

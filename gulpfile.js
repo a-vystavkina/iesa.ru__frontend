@@ -28,7 +28,6 @@ import imagemin         from 'gulp-imagemin'
 import notify           from 'gulp-notify'
 import convertEncoding  from 'gulp-convert-encoding'
 
-
 const config = {
     sourcePath: 'src',
     buildPath: 'build',
@@ -96,7 +95,17 @@ function copyImagesBlocks() {
 function copyImages() {
     return src('src/images/**/*', { since: lastRun('copyImages') })
         .pipe(debug({title: 'Copies '}))
-        .pipe(imagemin([imagemin.gifsicle(), imagemin.mozjpeg(), imagemin.optipng()]))
+        .pipe(imagemin([
+            imagemin.gifsicle({interlaced: true}),
+            imagemin.mozjpeg({quality: 75, progressive: true}),
+            imagemin.optipng({optimizationLevel: 5}),
+            imagemin.svgo({
+                plugins: [
+                    {removeViewBox: true},
+                    {cleanupIDs: false}
+                ]
+            })
+        ]))
         .pipe(debug({title: 'Minify '}))
         .pipe(dest('build/images'));
 }
@@ -120,38 +129,9 @@ function compileSass() {
         debug({title: 'Compiles '}),
         replace(/..\/..\/blocks\/([a-zA-Z0-9_-]+)\/images\/([a-zA-Z0-9_-]+).([a-zA-Z0-9_-]+)/g, '../images/blocks/$1/$2.$3'),
         debug({title: 'Replaces path to image '}),
-        /** TODO: autoprefixer сыпет ошибки в конечный css - надо разобрать их и вернуть */
-        //debug({title: 'Add browser prefix '}),
-        //autoprefixer(config.autoprefixer),
         cleancss( {...config.cleancss, format: 'beautify'} ),
         rename({ basename: 'main' }),
         debug({title: 'Renames '}),
-        dest('build/css')
-    ).on('error', notify.onError("<%= error.title %>: <%= error.message %>"));
-}
-
-/**
- * Функция генерирует бандл в кодировке windows-1251
- * для загрузки на бэкенд проекта. Больше не для чего.
- * Когда проект будет в utf-8 можно убить функцию
- */
-function compileSassWin1251() {
-    return multipipe(
-        src('src/scss/styles.scss'),
-        sass(),
-        debug({title: 'Compiles '}),
-        replace(/..\/..\/blocks\/([a-zA-Z0-9_-]+)\/images\/([a-zA-Z0-9_-]+).([a-zA-Z0-9_-]+)/g, '../images/blocks/$1/$2.$3'),
-        debug({title: 'Replaces path to image '}),
-        replace('@charset "UTF-8";', ''),
-        replace('🡐 ', '\\1F850\\0020'),
-        replace(' 🡒', '\\0020\\1F852'),
-        /** TODO: autoprefixer сыпет ошибки в конечный css - надо разобрать их и вернуть */
-        //debug({title: 'Add browser prefix '}),
-        //autoprefixer(config.autoprefixer),
-        //cleancss( {...config.cleancss, format: 'beautify'} ),
-        rename({ basename: 'main-1251' }),
-        debug({title: 'Renames '}),
-        convertEncoding({to: 'windows-1251'}),
         dest('build/css')
     ).on('error', notify.onError("<%= error.title %>: <%= error.message %>"));
 }
@@ -176,33 +156,12 @@ function compileJs() {
     ).on('error', notify.onError());
 }
 
-/**
- * Функция генерирует бандл в кодировке windows-1251
- * для загрузки на бэкенд проекта. Больше не для чего.
- * Когда проект будет в utf-8 можно убить функцию
- */
-function compileJsWin1251() {
-    return multipipe(
-        src('src/js/main.js'),
-        webpackStream(config.webpack),
-        rename({ basename: 'main-1251' }),
-        debug({title: 'Renames '}),
-        convertEncoding({to: 'windows-1251'}),
-        dest('build/js'),
-    ).on('error', notify.onError());
-}
 
 function compileLibsJs() {
     return multipipe(
         src([
-            //'node_modules/@fancyapps/ui/dist/fancybox.umd.js',
             'node_modules/flickity/dist/flickity.pkgd.min.js',
-            'node_modules/flickity-fade/flickity-fade.js',
-            'node_modules/wow.js/dist/wow.min.js',
-            'node_modules/choices.js/public/assets/scripts/choices.min.js',
-            //'node_modules/animejs/lib/anime.min.js',
-            'node_modules/@popperjs/core/dist/umd/popper.min.js',
-            'node_modules/tippy.js/dist/tippy-bundle.umd.min.js',
+            'node_modules/flickity-fade/flickity-fade.js'
         ]),
         concat('libs.min.js'),
         dest('build/js/'),
@@ -213,14 +172,8 @@ function compileLibsSass() {
     return multipipe(
         src([
             'node_modules/normalize.css/normalize.css',
-            'node_modules/animate.css/animate.css',
-            //'node_modules/@fancyapps/ui/dist/fancybox.css',
             'node_modules/flickity/dist/flickity.css',
-            'node_modules/flickity-fade/flickity-fade.css',
-            'node_modules/choices.js/public/assets/styles/choices.min.css',
-            'node_modules/tippy.js/dist/tippy.css',
-            'node_modules/tippy.js/animations/shift-toward.css',
-            'node_modules/tippy.js/themes/light.css',
+            'node_modules/flickity-fade/flickity-fade.css'
         ]),
         sass(),
         cleancss( config.cleancss ),
@@ -240,8 +193,8 @@ function serve() {
 
 function startWatch() {
     watch('src/**/*.pug', compilePug)
-    watch('src/**/*.{sass,scss}', parallel(compileSass, compileSassWin1251))
-    watch('src/**/*.js', parallel(compileJs, compileJsWin1251))
+    watch('src/**/*.{sass,scss}', parallel(compileSass))
+    watch('src/**/*.js', parallel(compileJs))
 
     watch('src/assets/**/*', copyAssets);
     watch('src/blocks/**/images/*', copyImagesBlocks);
@@ -257,18 +210,19 @@ export { clearBuild };
 export { copyAssets, copyImagesBlocks, copyImages, copyFonts, copyFavicon }
 
 // Compiles
-export { compilePug, compileSass, compileSassWin1251, compileJs, compileJsWin1251, compileLibsSass, compileLibsJs }
+export { compilePug, compileSass, compileJs, compileLibsSass, compileLibsJs }
 
 export let compileLibs = parallel(compileLibsSass, compileLibsJs);
+
 
 // Build
 export let build = series(
     clearBuild,
     parallel(copyAssets, copyImagesBlocks, copyImages, copyFonts, copyFavicon),
-    parallel(compileSass, compileSassWin1251, compilePug, compileJs, compileJsWin1251, compileLibs)
+    parallel(compileSass, compilePug, compileJs, compileLibs)
 );
 
 export default series(
-    parallel(compileSass, compileSassWin1251, compilePug, compileJs, compileJsWin1251, compileLibs),
+    parallel(compileSass, compilePug, compileJs, compileLibs),
     parallel(startWatch, serve)
 );

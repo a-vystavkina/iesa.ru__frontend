@@ -1,22 +1,24 @@
-.address {
+.address { 
   &-title {
     color: var(--color-mint);
     font-size: var(--font-size--medium);
     font-weight: 500;
     line-height: 1.5;
     text-align: center;
-    margin-bottom: 0.5em;
+    margin-bottom: .5em;
   }
 
   &__contacts {
 		list-style: none;
-		margin: 0;
+		margin: 0 auto;
 		padding: 0;
+    width: 200px;
 
     &-item {
       white-space: nowrap;
-      margin: 0 auto 0.5em;
-      width: 200px;
+      margin: 0 0 .5em;
+      font-weight: 300;
+
       &:last-child {
         margin-bottom: 0;
       }
@@ -32,6 +34,10 @@
         color: var(--color-white);
         text-decoration: none;
       }
+    }
+    @media (min-width: $screen-md) {
+      margin: 0;
+      width: auto;
     }
 	}
   @media (min-width: $screen-md) {

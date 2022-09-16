@@ -4,7 +4,6 @@ import ToggleBlock from "./classes/ToggleBlock"
 import SvgLoad from "./classes/SvgLoad"
 import MovingPlaceholder from "./classes/MovingPlaceholder"
 import Utils from "./classes/Utils"
-import Tabs from "./classes/Tabs"
 import HiddenCaptcha from "./classes/HiddenCaptcha"
 
 const app = {
@@ -103,13 +102,8 @@ const app = {
 
         MovingPlaceholder.init('.js-moving-placeholder', 'moving-placeholder');
 
-        ToggleBlock.init('.phones');
         ToggleBlock.init('.header-search');
-        ToggleBlock.init('.faq');
-        ToggleBlock.init('.main-slider');
 
-        Tabs.init('.address__cities', '.address__address');
-        Tabs.init('.phones__regions ul', '.phones__regions-inner');
 
         const mainMenu = new MobileMenu('.main-menu', '.page-nav');
         const footerMenu = new MobileMenu('.footer-menu');
@@ -117,24 +111,6 @@ const app = {
         this.filterBlocks();
 
         this.flickitySet = new FlickitySet('[data-flickity-options]');
-
-        if (typeof WOW !== 'undefined') {
-            const wow = new WOW({
-                animateClass: 'animate__animated',
-                offset: 50,
-                mobile: false
-            });
-            wow.init();
-        }
-
-        if (typeof tippy !== 'undefined') {
-            tippy('[data-tippy-content]',{
-                animation: 'shift-toward',
-                theme: 'light',
-                allowHTML: true,
-                interactive: true
-            });
-        }
     }
 };
 
@@ -152,35 +128,3 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 })
-
-
-//Расчет круга для блока "Наши преимущества"
-$(function() {
-    'use strict';
-    
-    const $circle = $('.js-circle');
-    const agle = 360 / $circle.length;
-    let agleCounter = 1;
-    
-    $circle.each(function() {
-      let $this = $(this);
-      //расчет ширины в процентах
-      let percentWidth = (100 * parseFloat($this.css('width')) / parseFloat($this.parent().css('width')));
-      
-      let curAgle = agleCounter * agle; // текущий угол
-      let radAgle = curAgle * Math.PI / 180; // перевод в радианы
-      
-      //Расчет ведется в %
-      //(<центр внеш. круга> + ((<радиус внеш. круга> - <радиус внут. круга>) * Math.cos(radAgle))) - (<т.к. координаты начинаются от нижнего левого угла, вычитаем радиус внут. круга, что бы позиционирование шло по центру внут. круга>)
-
-      let x = (50 + ((50 - (percentWidth / 2)) * Math.sin(radAgle))) - (percentWidth / 2);
-      let y = (50 + ((50 - (percentWidth / 2)) * Math.cos(radAgle))) - (percentWidth / 2);
-          
-      $this.css({
-        left: x + '%',
-        bottom: y + '%'
-      });
-      
-      agleCounter++;
-    });
-  });

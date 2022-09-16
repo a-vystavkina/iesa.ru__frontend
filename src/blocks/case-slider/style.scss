@@ -1,10 +1,6 @@
 .case-slider {
 	$block-name: &; // #{$block-name}__element
 
-	&.flickity-enabled {
-		padding-bottom: 2em;
-	}
-
 	&::after {
 		content: 'flickity';
 		display: none;
@@ -16,7 +12,7 @@
 
 	& .flickity-prev-next-button {
 		background: none;
-		bottom: -30px;
+		bottom: -60px;
 		height: 1.5em;
 		padding: 0;
 		top: auto;
@@ -33,17 +29,17 @@
 		}
 		&.previous {
 			right: 0;
-			left: 35%;
+			left: 32%;
 			transform: translateX(50%);
 			@media (min-width: $screen-md) {
-			  left: 89%;
+			  left: 87%;
 			}
 			@media (min-width: $screen-lg) {
-			  left: 93%;
+			  left: 85%;
 			}
 		}
 		&.next {
-			right: 40%;
+			right: 37%;
 			transform: translateX(50%);
 			@media (min-width: $screen-md) {
 			  right: 2%;
@@ -61,6 +57,14 @@
 			transform: translate(50%, 50%);
 			width: 50%;
 		}
+
+		@media (min-width: $screen-md) {
+      bottom: -70px;
+		}
+
+		@media (min-width: $screen-lg) {
+      bottom: -80px;
+		}
 	}
 
 	& .flickity-page-dots {
@@ -76,17 +80,6 @@
 		display: none;
 	}
 
-	@media (min-width: $screen-md) {
-		// &.flickity-prev-next-button.previous {
-		// 	left: 10px;
-		// 	bottom: 0;
-		// }
-
-		// &.flickity-page-dots {
-    //   display: none;
-		// }
-	}
-
 	@media (min-width: $screen-lg) {
 		&::after {
 			content: '';
@@ -100,12 +93,11 @@
 				& .flickity-viewport {
 					box-sizing: border-box;
 					margin: 0 -15px;
-					padding: 0 0 calc(var(--grid-gutter-y) * 2) 0;
+					padding: 0 0 calc(var(--grid-gutter) * 2) 0;
 				}
 
 				& .flickity-slider {
 					box-sizing: border-box;
-					height: calc(100% - var(--grid-gutter-y) * 2);
 					margin-left: 15px;
 					margin-right: 15px;
 					width: calc(100% - 30px);

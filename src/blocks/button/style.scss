@@ -5,13 +5,13 @@
 	appearance: none;
 	background-color: transparent;
 	border: 1px solid transparent;
-	border-radius: 1.25em;
+	border-radius: 1.5em;
 	color: inherit;
 	cursor: pointer;
 	display: inline-flex;
 	justify-content: center;
 	margin: 0;
-	padding: .6em 2em .7em 2em;
+	padding: .5em 2em .6em 2em;
 	text-align: center;
 	text-decoration: none;
 	transition: var(--transition-time);
@@ -33,6 +33,7 @@
 }
 
 .button {
+	
   @include button;
 
 	&--primary {
@@ -47,47 +48,30 @@
 		background-color: transparent;
 		border-color: var(--color-primary);
 		color: var(--color-primary);
-    padding: .35em;
-    font-size: var(--font-size--medium);
-    border-radius: 100%;
 
 		&:hover,
 		&:active {
 			@include button--primary;
 		}
-
-    &:before {
-      content: "";
-      background-image: url(../../blocks/button/images/chat.png);
-      height: 12px;
-      width: 12px;
-      background-repeat: no-repeat;
-      background-position: center center;
-			font-size: var(--font-size--small);
-
-      @media (min-width: $screen-md) {
-        content: "Консультация";
-        background-image: none;
-				width: 103px;
-      }
-    }
-
-		@media (min-width: $screen-md) {
-			padding: 0.35em 0.5em 1em;
-			border-radius: 1.25em;
-			width: 150px;
-		}
 	}
 
-	&--form {
-		border-radius: 1.5em;
-		width: 220px;
+	&--small  {
 		display: block;
-		margin-right: auto;
-		margin-left: auto;
+		padding: .15em .65em;
+		border-radius: 100%;
 
-		@media (min-width: $screen-lg) {
-			margin-left: 0;
+		@media (min-width: $screen-md) {
+			display: none;
+		}
+
+	}
+
+	&--large {
+		display: none;
+
+		@media (min-width: $screen-md) {
+			display: block;
+			font-size: var(--font-size--medium);
 		}
 	}
 }

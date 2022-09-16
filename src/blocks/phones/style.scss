@@ -1,12 +1,15 @@
 .phones {
   display: flex;
+
   &__number {
     font-size: var(--font-size--small);
     line-height: 1.5;
-    margin-right: 0.5em;
+    margin-right: .5em;
+
     &:last-child {
       margin-right: 0;
     }
+    
     @media (min-width: 768px) {
       margin-right: 1.625em;
     }

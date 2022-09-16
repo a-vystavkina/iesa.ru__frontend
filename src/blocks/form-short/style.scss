@@ -13,7 +13,7 @@
 		display: block;
 
 		& + & {
-			margin-top: var(--typo-margin-vertical);
+			margin-top: 2em;
 		}
 
 		@media (min-width: $screen-lg) {
@@ -25,6 +25,7 @@
 
   &__item {
     margin-bottom: 18px;
+
     @media (min-width: $screen-lg) {
       display: flex;
       align-items: center;
@@ -42,10 +43,13 @@
 
   .field-text {
     color: rgba(255, 255, 255, 0.47);
+    
     &__input {
       background: rgba(41, 146, 208, 0.5);
       border: 1px solid var(--color-white);
-      padding: 0.75em 0 0.75em 1em;
+      padding: .75em 0 .75em 1em;
+      outline: none;
+      color: var(--color-white);
     }
   }
 
@@ -54,10 +58,10 @@
 		@media (min-width: $screen-md) {
 			display: flex;
 			flex-wrap: wrap;
-			gap: calc(var(--grid-gutter-y) * 2) var(--grid-gutter-x);
+			gap: calc(var(--grid-gutter) * 2) var(--grid-gutter);
 
 			& #{$block-name}__field {
-				--width: calc(50% - var(--grid-gutter-x) / 2);
+				--width: calc(50% - var(--grid-gutter) / 2);
 				flex: 0 0 var(--width);
 				max-width: var(--width);
 
@@ -69,7 +73,7 @@
 
 		@media (min-width: $screen-lg) {
 			& #{$block-name}__field {
-				--width: calc(33.33333% - var(--grid-gutter-x) * 2 / 3);
+				--width: calc(33.33333% - var(--grid-gutter) * 2 / 3);
 			}
 		}
 	}
@@ -91,17 +95,20 @@
       color: var(--color-white);
       font-weight: 400;
       line-height: 1.25;
+      margin-left: 30px;
+      position: relative;
+      width: 68%;
       & a {
         color: inherit;
       }
   
       &::before {
         content: "";
-        display: inline-block;
-        vertical-align: middle;
-        margin-right: 10px;
         width: 20px;
         height: 20px;
+        position: absolute;
+        top: 5px;
+        left: -30px;
         background-image: url(../../blocks/form-short/images/checkbox-no-active.png);
         background-repeat: no-repeat;
         background-position: center center;
@@ -109,7 +116,7 @@
       }
   
       @media (min-width: $screen-lg) {
-        width: 55%;
+        width: 48%;
       }
     }
   }

@@ -17,32 +17,25 @@
 
 	&__item-inner {
 		display: block;
-		height: calc(var(--min-height) - 4 * var(--v-padding));
 		padding-top: var(--v-padding);
 		padding-bottom: var(--v-padding);
 	}
 
 	&__form {
 		width: 100%;
-	}
-
-	&__form-inner {
 		padding: 2em 0 2.5em;
 	}
 
 	&__title {
-		font-size: var(--font-size-h1);
-		font-weight: 700;
-		line-height: 1.1;
-		margin: 0 0 .25em 0;
 		text-transform: none;
-    width: 80%;
+    width: 85%;
 	}
 
 	&__desc {
     display: flex;
     justify-content: center;
 		font-size: var(--font-size--small);
+		font-weight: 500;
     background: #A1D7E0;
     border-radius: 100px;
     padding: 1px 16px;

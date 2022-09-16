@@ -4,6 +4,7 @@
 
 	display: block;
 	position: relative;
+	font-weight: 300;
 
 	&__input {
     border-radius: 8px;
@@ -16,7 +17,7 @@
 		line-height: 1;
 		pointer-events: none;
 		position: absolute;
-		top: 1em;
+		top: .85em;
 		transition: var(--transition-time);
 
 		#{$block-name}__input[required] + &::after {
@@ -34,12 +35,24 @@
 		transform-origin: 0 0;
 	}
 }
+
 .form__field-address {
 	.moving-placeholder {
 		width: 100%;
-		@media (min-width: $screen-md) {
-		  width: 77%;
+
+		&__name {
+			color: var(--color-gray--dark);
+			top: 1em;
 		}
+
+		&__input {
+			color: var(--color-gray--dark);
+		}
+
+		@media (min-width: $screen-md) {
+		  width: 80%;
+		}
+
 		@media (min-width: $screen-lg) {
 		  width: 79%;
 		}
@@ -49,9 +62,20 @@
 .form__field-connection {
 	.moving-placeholder {
 		width: 100%;
-		@media (min-width: $screen-md) {
-		  width: 44%;
+
+		&__name {
+			color: var(--color-gray--dark);
+			top: 1em;
 		}
+
+		&__input {
+			color: var(--color-gray--dark);
+		}
+
+		@media (min-width: $screen-md) {
+		  width: 50%;
+		}
+		
 		@media (min-width: $screen-lg) {
 		  width: 49%;
 		}

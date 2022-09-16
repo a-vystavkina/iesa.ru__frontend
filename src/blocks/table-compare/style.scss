@@ -17,7 +17,7 @@
 
 	& th,
 	& td {
-		font-weight: normal;
+		font-weight: 400;
 		padding: .8em 1.5em;
 		text-align: center;
 		position: relative;
@@ -67,7 +67,7 @@
 			min-width: 200px;
 			background: var(--color-primary);
 			color: var(--color-white);
-			font-weight: 400;
+			font-weight: 500;
 			font-size: var(--font-size-h3);
 			line-height: 1;
 		}
@@ -76,7 +76,7 @@
 			min-width: 150px;
 			background: var(--color-primary);
 			color: var(--color-mint);
-			font-weight: 400;
+			font-weight: 500;
 			line-height: 1.5;
 			font-size: var(--font-size--tiny);
 		}
@@ -100,7 +100,7 @@
 	}
 
 	&__price {
-		font-weight: 400;
+		font-weight: 500;
 		font-size: var(--font-size--large);
 		position: relative;
 		color: var(--color-white);

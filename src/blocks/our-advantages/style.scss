@@ -1,164 +1,104 @@
 .our-advantages {
   padding: 0;
   margin: 0;
-  
-  &__circle-wrap {
-    display: none;
-  }
+ 
   &__circle-main {
     display: none;
   }
-  &__circle-mobile {
-    display: flex;
-    flex-direction: column;;
-  }
-  @media (min-width: $screen-md) {
-    padding: 20px;
-    margin: 10em auto;
-    width: 370px;
-    &__circle-wrap {
-      display: block;
-      position: relative;
-      height: 0;
-      padding-top: 100%;
-      border-radius: 50%;
-    }
-    &__circle-main {
-      display: block;
-      position: absolute;
-      top: 55%;
-      right: 48%;
-      transform: translateX(50%);
-      img {
-        width: 106px;
-        height: 103px;
-      }
-    }
-    &__circle-mobile {
-      display: none;
-    }
-  }
-  @media (min-width: $screen-lg) {
-    width: 550px;
-    &__circle-main {
-      position: absolute;
-      top: 55%;
-      right: 40%;
-      transform: translateX(-50%);
-      img {
-        width: 126px;
-        height: 123px;
-      }
-    }
-  }
-}   
-.circle {
-  position: absolute;
-  width: 95px;
-  height: 94px;
-  border-radius: 50%;
-  background-color: var(--color-white);
-  border: 1px solid var(--color-mint);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  &__info {
-    position: absolute;
-    &-title {
-      font-weight: 400;
-      font-size: var(--font-size--vast);
-      line-height: 1.35;
-      margin-bottom: .5em;
-    }
-    &-desc {
-      font-weight: 300;
-      font-size: var(--font-size);
-      line-height: 1.35;
-    }
-    @media (min-width: $screen-md) {
-      &-1 {
-        top: -130%;
-        left: -55%;
-        width: 284px;
-      }
-      &-2 {
-        top: -50%;
-        left: 120%;
-        width: 178px;
-      }
-      &-3 {
-        top: 40%;;
-        left: 120%;
-        width: 181px;
-      }
-      &-4 {
-        top: 130%;
-        left: -10%;
-        width: 247px;
-      }
-      &-5 {
-        top: 0;
-        left: -200%;
-        width: 193px;
-      }
-      &-6 {
-        top: -40%;
-        left: -200%;
-        width: 190px;
-      }
-    }
-    @media (min-width: $screen-lg) {
-      &-1 {
-        left: -50%;
-      }
-      &-2 {
-        top: 0;
-        left: 140%;
-        width: 290px;
-      }
-      &-3 {
-        top: 0;
-        left: 140%;
-        width: 277px;
-      }
-      &-4 {
-        top: 130%;
-        left: -50%;
-      }
-      &-5 {
-        left: -320%;
-        width: 292px;
-      }
-      &-6 {
-        top: 0;
-        left: -300%;
-        width: 260px;
-      }
-    }
-  }
-  &__count {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: 0;
-    right: -5px;
-    width: 25px;
-    height: 25px;
-    background: url(../../blocks/our-advantages/images/circle-count.png);
-    color: var(--color-white);
-  }
-  & svg {
-    fill: var(--color-primary);
-  }
-}    
 
-.circle-mobile {
+  @media (min-width: $screen-md) {
+    margin: 10em auto 15em;
+
+    &__circle-main {
+      display: block;
+      position: absolute;
+      top: 65%;
+      left: 29%;
+      transform: translateX(50%);
+    }
+  }
+
+  @media (min-width: $screen-lg) {
+    &__circle-main {
+      display: block;
+      position: absolute;
+      top: 65%;
+      left: 35%;
+      transform: translateX(50%);
+    }
+  }
+}
+
+@mixin distribute-on-circle( 
+  $nb-items,
+  $circle-size,
+  $item-size,
+  $class-for-IE: false
+) {
+  $half-item: calc($item-size / 2);
+  $half-parent: calc($circle-size / 2);
+  
+  position: relative;
+  width:  $circle-size;
+  height: $circle-size;
+  box-sizing: content-box;
+  
+  > * {
+    display: block;
+    position: absolute;
+    top:  50%; 
+    left: 20%;
+    transform: translateX(50%);
+  }
+  
+  $angle: calc(360 / $nb-items);
+  $rot: 270;
+
+  @for $i from 1 through $nb-items {
+    @if not $class-for-IE {
+      > :nth-of-type(#{$i}) {
+        transform: rotate($rot * 1deg) translate($half-parent) rotate($rot * -1deg);
+      }
+    } @else {
+      > .#{$class-for-IE}#{$i} {
+        $mt: sin($rot * pi() / 180) * $half-parent - $half-item;
+        $ml: cos($rot * pi() / 180) * $half-parent - $half-item;
+        margin: $ml 0 0 $mt;
+      }
+    }
+
+    $rot: ($rot + $angle);
+  }
+}
+
+.circle-container {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  @media (min-width: $screen-md) {
+    @include distribute-on-circle(6, 17em, 6em, false);
+    margin: 0 auto;
+  }
+
+  @media (min-width: $screen-lg) {
+    @include distribute-on-circle(6, 20em, 6em, false); 
+  }
+}
+
+.circle {
   display: flex;
-  margin-bottom: 20px;
+  margin-bottom: 1em;
+
   &:last-child {
     margin-bottom: 0;
   }
+
+  @media (min-width: $screen-md) {
+    display: block;
+    margin-bottom: 0;
+  }
+
   &__icon {
     width: 77px;
     height: 76px;
@@ -169,12 +109,19 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-right: 1em;
     position: relative;
-    & svg {
+    margin-right: 1em;
+
+    @media (min-width: $screen-md) {
+      margin-right: 0;
+    }
+
+    & svg { 
+      width: 100%; 
       fill: var(--color-primary);
     }
   }
+
   &__count {
     display: flex;
     justify-content: center;
@@ -184,20 +131,104 @@
     right: -5px;
     width: 20px;
     height: 20px;
-    background: url(../../blocks/our-advantages/images/circle-count__mob.png);
+    background-color: var(--color-primary);
+    border-top-right-radius: 7px;
+    border-bottom-left-radius: 7px;
     color: var(--color-white);
+    font-size: var(--font-size--medium);
+    font-weight: 500;
   }
+
   &__info {
-    &-title {
-      font-weight: 400;
-      font-size: var(--font-size);
-      line-height: 1.35;
-      margin-bottom: .25em; 
-    }
-    &-desc {
-      font-weight: 300;
-      font-size: var(--font-size--small);
-      line-height: 1.35;
-    }
+    position: static;
+    width: 90%;
+  
+      &-title {
+        font-weight: 500;
+        font-size: var(--font-size--vast);
+        line-height: 1.35;
+        margin-bottom: .5em;
+      }
+  
+      &-desc {
+        font-weight: 300;
+        font-size: var(--font-size);
+        line-height: 1.35;
+      }
+      
+      @media (min-width: $screen-md) {
+        position: absolute;
+        width: 100%;
+
+        &-1 {
+          top: -140%;
+          left: -55%;
+          width: 284px;
+        }
+        
+        &-2 {
+          top: -50%;
+          left: 145%;
+          width: 190px;
+        }
+        
+        &-3 {
+          top: 40%;;
+          left: 145%;
+          width: 196px;
+        }
+        
+        &-4 {
+          top: 130%;
+          left: -10%;
+          width: 247px;
+        }
+        
+        &-5 {
+          top: 0;
+          left: -210%;
+          width: 183px;
+        }
+        
+        &-6 {
+          top: -40%;
+          left: -210%;
+          width: 170px;
+        }
+      }
+        
+      @media (min-width: $screen-lg) {
+        &-1 {
+          left: -50%;
+        }
+        
+        &-2 {
+          top: 0;
+          left: 160%;
+          width: 290px;
+        }
+        
+        &-3 {
+          top: 0;
+          left: 160%;
+          width: 273px;
+        }
+        
+        &-4 {
+          top: 130%;
+          left: -50%;
+        }
+        
+        &-5 {
+          left: -325%;
+          width: 270px;
+        }
+        
+        &-6 {
+          top: 0;
+          left: -325%;
+          width: 260px;
+        }
+      }
   }
 }

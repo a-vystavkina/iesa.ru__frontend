@@ -2,7 +2,7 @@
 
 	$block-name: &; // #{$block-name}__element
 
-	color: var(--color-gray--darke);
+	color: var(--color-gray--darker);
 	line-height: 0; 
 
 	&__button {
@@ -21,15 +21,15 @@
 	}
 
 	&__inner {
-		background: var(--color-primary);
+		background: var(--color-primary--darken);
 		display: flex;
 		left: 0;
 		opacity: 0;
-		padding: var(--grid-gutter-y) var(--grid-gutter-x);
+		padding: var(--grid-gutter);
 		position: absolute;
 		right: 0;
 		top: 100%;
-		transform: translateY(-100%);
+		transform: translateX(-100%);
 		transform-origin: 100% 0;
 		transition: var(--transition-time);
 		visibility: hidden;

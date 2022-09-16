@@ -16,11 +16,11 @@
 			"image": "assets/seo-audit.png"
 		}
 	]
-.tile-slider.tile-slider--place-shadow.our-services(data-flickity-options='{ "cellAlign": "left", "prevNextButtons": false, "groupCells": true, "watchCSS": true, "lazyLoad": true }')
+.tile-slider.services(data-flickity-options='{ "cellAlign": "left", "prevNextButtons": false, "groupCells": true, "watchCSS": true, "lazyLoad": true }')
 	each item, i in dataServices
-		.our-services__item
-			.our-services__title !{item.title}
-			.our-services__price !{item.price}
+		.services__item
+			.services__title !{item.title}
+			.services__price !{item.price}
 			if (item.image)
-				.our-services__img
+				.services__img
 					img(src=item.image)

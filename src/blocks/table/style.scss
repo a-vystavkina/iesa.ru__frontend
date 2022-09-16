@@ -17,7 +17,7 @@
 
 	& th,
 	& td {
-		font-weight: normal;
+		font-weight: 400;
 		padding: .8em .5em;
 		text-align: center;
 		position: relative;
@@ -81,6 +81,7 @@
 			border-bottom: 2px solid var(--color-gray--lighter);
 		}
 	}
+	
 	@media (max-width: $screen-md - 1) {
 		table-layout: auto;
 	}
