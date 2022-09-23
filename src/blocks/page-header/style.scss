@@ -15,6 +15,11 @@
       border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     }
 
+    &--sw {
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      box-shadow: var(--shadow);
+    }
+
     @media (min-width: $screen-md) {
       justify-content: flex-end;
       padding-top: 1em;
@@ -38,10 +43,6 @@
       display: block;
       width: 123px;
     }
-
-    // @media (min-width: $screen-md) {
-    //   display: none;
-    // }
   }
 
   &__burger {
@@ -57,12 +58,4 @@
       padding-left: 1.625em;
     }
   }
-
-  // &__search {
-  //   display: block;
-    
-  //   @media (min-width: $screen-md) {
-  //     display: none;
-  //   }
-  // }
 }

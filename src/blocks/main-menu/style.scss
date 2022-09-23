@@ -17,7 +17,6 @@
 			align-items: center;
 			display: flex;
 			font-weight: 500;
-			// padding: .5em 0 .75em 0;
 			font-size: var(--font-size);
 			margin-top: 0;
 
@@ -66,17 +65,6 @@
 				&:last-child {
           border-bottom: none;
 				}
-
-				&.-is-active {
-					// background: var(--color-gray--darken);
-				}
-			}
-
-			&--lvl2 {
-
-				&.-is-active {
-					// background: var(--color-gray--darker);
-				}
 			}
 
 			&--lvl3 {
@@ -115,11 +103,9 @@
 
 			&--lvl1 {
 				padding: .5em 0 .75em 1.5em;
-				// margin-right: 1.375em;
 
 				#{$block-name}__item--lvl1:hover &,
 				#{$block-name}__item--lvl1#{$block-name}__item--selected & {
-					// background: var(--color-gray--darken);
 					color: var(--color-gray);
 				}
 			}
@@ -130,7 +116,6 @@
 
 				#{$block-name}__item--lvl2:hover &,
 				#{$block-name}__item--lvl2#{$block-name}__item--selected & {
-					// background: var(--color-gray--darker);
 					color: var(--color-primary);
 				}
 			}
@@ -182,14 +167,6 @@
 				flex-grow: 1;
 				flex-shrink: 0;
 				padding: 1em .5em;
-
-				// #{$block-name}__submenu--full-width & {
-				// 	column-count: 1;
-				// }
-
-				// #{$block-name}__submenu--full-width #{$block-name}__image + & {
-				// 	column-count: 3;
-				// }
 			}
 
 			&--lvl3 {
@@ -227,33 +204,8 @@
 		&__link {
 
 			&--lvl1 {
-				// border-top: 5px solid transparent;
-				// justify-content: center;
 				position: relative;
 				white-space: nowrap;
-
-				// #{$block-name}__item--lvl1:hover &,
-				// #{$block-name}__item--lvl1#{$block-name}__item--selected & {
-				// 	border-top-color: var(--color-primary);
-				// }
-
-				// #{$block-name}__item--lvl1 + #{$block-name}__item--lvl1 &::before {
-				// 	border-left: 1px solid var(--color-gray--darken);
-				// 	bottom: 12px;
-				// 	content: '';
-				// 	left: 0;
-				// 	position: absolute;
-				// 	top: 12px;
-				// 	transition: var(--transition-time);
-				// 	width: 0;
-				// }
-
-				// #{$block-name}__item--lvl1:hover &::before,
-				// #{$block-name}__item--lvl1:hover + #{$block-name}__item--lvl1 &::before,
-				// #{$block-name}__item--lvl1#{$block-name}__item--selected &::before,
-				// #{$block-name}__item--lvl1#{$block-name}__item--selected + #{$block-name}__item--lvl1 &::before {
-				// 	border-color: transparent;
-				// }
 			}
 
 			&--lvl2 {
@@ -291,16 +243,5 @@
         }
 			}
 		}
-		// &__image {
-		// 	border-left: 1px solid var(--color-gray--darken);
-		// 	display: block;
-		// 	order: 1;
-		// 	padding: 2.5em 2em;
-		// 	width: calc(200px + 4em);
-
-		// 	& img {
-		// 		max-width: none;
-		// 	}
-		// }
 	}
 }

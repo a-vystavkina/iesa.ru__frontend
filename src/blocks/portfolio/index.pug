@@ -1,0 +1,64 @@
+-
+  let dataPortfolio = [
+    {
+      "title": 'Интернет магазин архитектурного декора',
+      "image": "assets/image1.png"
+    },
+    {
+      "title": 'Интернет магазин архитектурного декора',
+      "image": "assets/image2.png"
+    },
+    {
+      "title": 'Интернет магазин архитектурного декора',
+      "image": "assets/image3.png"
+    },
+    {
+      "title": 'Интернет магазин архитектурного декора',
+      "image": "assets/image2.png"
+    },
+    {
+      "title": 'Интернет магазин архитектурного декора',
+      "image": "assets/image3.png"
+    },
+    {
+      "title": 'Интернет магазин архитектурного декора',
+      "image": "assets/image1.png"
+    },
+    {
+      "title": 'Интернет магазин архитектурного декора',
+      "image": "assets/image1.png"
+    },
+    {
+      "title": 'Интернет магазин архитектурного декора',
+      "image": "assets/image2.png"
+    },
+    {
+      "title": 'Интернет магазин архитектурного декора',
+      "image": "assets/image3.png"
+    },
+    {
+      "title": 'Интернет магазин архитектурного декора',
+      "image": "assets/image2.png"
+    },
+    {
+      "title": 'Интернет магазин архитектурного декора',
+      "image": "assets/image3.png"
+    },
+    {
+      "title": 'Интернет магазин архитектурного декора',
+      "image": "assets/image1.png"
+    }
+  ]
+
+.portfolio
+  each item, i in dataPortfolio
+    .portfolio__item
+      .portfolio__img
+        img(src=item.image)
+      .portfolio__title 
+        a.portfolio__link(href="#") !{item.title}
+
+button.button.button--mint.-ta-c#loadmore Показать еще
+
+
+  

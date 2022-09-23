@@ -32,6 +32,13 @@
 	color: var(--color-white);
 }
 
+@mixin button--mint {
+	background-color: var(--color-mint);
+	border: 1px solid var(--color-mint);
+	color: var(--color-white);
+	display: block;
+}
+
 .button {
 	
   @include button;
@@ -42,6 +49,16 @@
 
 	&--primary-darken {
 		@include button--primary-darken;
+	}
+
+	&--mint {
+		@include button--mint;
+		margin: 0 auto;
+
+		&:hover,
+		&:active {
+			@include button--primary;
+		}
 	}
   
   &--not-fill {

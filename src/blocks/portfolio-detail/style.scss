@@ -1,0 +1,145 @@
+.portfolio-detail {
+
+  &__info {
+    display: block;
+  }
+
+  &__desc {
+    width: 100%;
+    margin-bottom: 6.25em;
+
+    &-item {
+      border-left: 4px solid var(--color-primary);
+      margin-bottom: 4.25em;
+      padding-left: 1.625em;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    &-title {
+      font-size: var(--font-size-h3);
+      font-weight: 500;
+      line-height: 1.35;
+      margin-bottom: .75em;
+    }
+
+    &-text {
+      font-size: var(--font-size);
+      font-weight: 300;
+      line-height: 1.35;
+
+      & ol {
+        padding-left: 1.625em;
+
+        & li {
+          margin-bottom: .5em;
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+  }
+
+  &__img {
+    display: block;
+    position: relative;
+    width: 100%;
+    z-index: 1;
+
+    & img {
+      width: 443px;
+      height: 226px;
+      bottom: 0;
+      z-index: 9;
+    }
+  }
+
+  &__list {
+    list-style: none;
+		margin: 0;
+		padding: 0;
+
+    & li {
+      font-size: var(--font-size);
+      font-weight: 300;
+      line-height: 1.35;
+      margin-bottom: .75em;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      &:before {
+        content: "";
+        display: inline-block;
+				background-image: url('../../blocks/portfolio-detail/images/arrow.png');
+				background-repeat: no-repeat;
+				background-position: center center;
+				width: 20px;
+				height: 15px;
+				vertical-align: middle;
+				margin-right: .75em;
+      }
+    }
+  }
+
+  @media (min-width: $screen-md) {
+    
+    &__desc {
+      width: 80%;
+      margin-right: auto;
+      margin-left: auto;
+    }
+
+    &__img {
+      width: 70%;
+      margin-right: auto;
+      margin-left: auto;
+    }
+  }
+
+  @media (min-width: $screen-lg) {
+
+    &__info {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+    }
+
+    &__desc {
+      flex: 1 0 25%;
+      width: 25%;
+      margin-right: 3.5em;
+      margin-bottom: 0;
+    }
+
+    &__img {
+      flex: 1 0 45%;
+
+      & img {
+        width: 484px;
+        height: 301px;
+        position: absolute;
+      }
+
+      &:after {
+        content: '';
+        background-image: url('../../blocks/portfolio-detail/images/fon.png');
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: 318px;
+        position: absolute;
+        z-index: 2;
+        top: -25em;
+        right: 7em;
+        display: block;
+        width: 318px;
+        height: 311px;
+      }
+    }
+  }
+}

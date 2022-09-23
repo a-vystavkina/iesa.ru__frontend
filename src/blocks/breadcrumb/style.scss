@@ -2,8 +2,8 @@
 
 	$block-name: &; // #{$block-name}__element
 
+	color: var(--color-primary);
 	font-size: var(--font-size--medium);
-	font-weight: 500;
 
 	&__list {
 		display: flex;
@@ -19,30 +19,27 @@
 		margin-right: .6875em;
 	}
 
+
 	&__item + &__item:before {
-		content: '';
 		background-color: transparent;
-		background-image: url("data:image/svg+xml;charset=utf-8,<svg width='8' height='12' viewBox='0 0 8 12' fill='none' xmlns='http://www.w3.org/2000/svg'><path fill-rule='evenodd' clip-rule='evenodd' d='M1.99984 0L0.589844 1.41L5.16984 6L0.589844 10.59L1.99984 12L7.99984 6L1.99984 0Z' fill='#A1D7E0'/></svg>");
+		background-image: url("data:image/svg+xml;charset=utf-8,<svg width='8' height='12' viewBox='0 0 8 12' fill='none' xmlns='http://www.w3.org/2000/svg'><path fill-rule='evenodd' clip-rule='evenodd' d='M1.99984 0L0.589844 1.41L5.16984 6L0.589844 10.59L1.99984 12L7.99984 6L1.99984 0Z' fill='rgb(161, 215, 224)'/></svg>");
 		background-position: 50% 50%;
 		background-repeat: no-repeat;
+		content: '';
 		display: inline-block;
 		height: 12px;
 		margin-right: .6875em;
-		width: 8px;
+		width: 6px;
 	}
 
 	&__link {
 		color: var(--color-mint);
 		text-decoration-color: transparent;
-    text-decoration: none;
 
 		&:hover {
-			color: var(--color-mint);
+			color: var(--color-primary);
 			text-decoration-color: currentColor;
+			text-decoration: none;
 		}
 	}
-
-  &__link + &__link {
-    color: var(--color-primary);
-  }
 }
