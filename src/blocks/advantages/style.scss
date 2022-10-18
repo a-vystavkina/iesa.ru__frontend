@@ -20,13 +20,6 @@
     }
   }
 
-  @media (min-width: $screen-md) and (max-width: $screen-lg) {
-    &__logo {
-      top: 65%;
-      left: 33%;
-    }
-  }
-
   @media (min-width: $screen-lg) {
     &__logo {
       top: 65%;
