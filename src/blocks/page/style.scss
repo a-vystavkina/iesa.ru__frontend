@@ -64,7 +64,6 @@ h1, .h1 {
   font-size: var(--font-size-h1);
   font-weight: 500;
   line-height: 1.05;
-  text-transform: uppercase;
 	margin: 0 0 .75em 0;
 }
 
@@ -125,6 +124,50 @@ img {
 	border: none;
 	height: auto;
 	max-width: 100%;
+}
+
+.image {
+	border-radius: 0.675em;
+}
+
+.list {
+	padding-left: 1em;
+
+	& li {
+		margin-bottom: .5em;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	&__arrow {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+
+		& li {
+      font-size: var(--font-size);
+      line-height: var(--line-height);
+      margin-bottom: .75em;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      &:before {
+        content: "";
+        display: inline-block;
+				background-image: url('../../blocks/portfolio-detail/images/arrow.png');
+				background-repeat: no-repeat;
+				background-position: center center;
+				width: 20px;
+				height: 15px;
+				vertical-align: middle;
+				margin-right: .75em;
+      }
+    }
+	}
 }
 
 hr {

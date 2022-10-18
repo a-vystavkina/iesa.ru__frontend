@@ -7,7 +7,6 @@ mixin menu-list(data, blockName)
     each item, i in data.items
       -
         let cssClassItem = blockName + '__item ' + blockName + '__item--lvl' + data.level;
-        let colorClassItem = blockName + '__value--colorFront';
         index ++;
         if (item.submenu)
           cssClassItem += ' ' + blockName + '__item--parent';
@@ -38,3 +37,34 @@ mixin menu-list(data, blockName)
               div(class=blockName + '__image')
                 img(src=item.banner, alt="")
             +menu-list(item.submenu, blockName)
+
+mixin footer-menu(data, blockName)
+  nav(class=blockName)&attributes(attributes)
+    +footer-menu__list(data, blockName)
+
+mixin footer-menu__list(data, blockName)
+  ul(class=blockName + '__list', class=blockName + '__list--lvl' + data.level)&attributes(attributes)
+    each item, i in data.items
+      -
+        let cssClassItem = blockName + '__item ' + blockName + '__item--lvl' + data.level;
+        index ++;
+        if (item.submenu)
+          cssClassItem += ' ' + blockName + '__item--parent';
+      li(class=cssClassItem)
+
+        a(href=item.url ? item.url : '#', class=blockName + '__link', class=blockName + '__link--lvl' + data.level)
+          = item.title
+          if (item.iconID)
+            svg: use(xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href='#' + item.iconID)
+
+
+        if (item.submenu)
+          if (item.submenu.submenuWrap)
+            -
+              let cssClassSubmenu = blockName + '__submenu--lvl' + data.level;
+              if (item.submenu.cssMod)
+                cssClassSubmenu += ' ' + blockName + '__submenu--' + item.submenu.cssMod;
+            div(class=cssClassSubmenu)
+              +footer-menu__list(item.submenu, blockName)
+          else
+            +footer-menu__list(item.submenu, blockName)

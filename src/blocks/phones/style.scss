@@ -3,7 +3,7 @@
 
   &__number {
     font-size: var(--font-size--small);
-    line-height: 1.5;
+    line-height: var(--line-height);
     margin-right: .5em;
 
     &:last-child {

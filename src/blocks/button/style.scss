@@ -47,8 +47,23 @@
 		@include button--primary;
 	}
 
+	&--primary-dark {
+		@include button--primary-darken;
+
+		&:hover,
+		&:active {
+			background-color: var(--color-mint);
+	    border: 1px solid var(--color-mint);
+		}
+	}
+
 	&--primary-darken {
 		@include button--primary-darken;
+
+		&:hover,
+		&:active {
+			@include button--primary;
+		}
 	}
 
 	&--mint {
@@ -72,9 +87,9 @@
 		}
 	}
 
-	&--small  {
+	&_size_sm  {
 		display: block;
-		padding: .15em .65em;
+		padding: .15em .5em;
 		border-radius: 100%;
 
 		@media (min-width: $screen-md) {
@@ -83,7 +98,7 @@
 
 	}
 
-	&--large {
+	&_size_lg {
 		display: none;
 
 		@media (min-width: $screen-md) {

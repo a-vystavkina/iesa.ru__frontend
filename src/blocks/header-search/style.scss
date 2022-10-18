@@ -23,13 +23,13 @@
 	&__inner {
 		background: var(--color-primary--darken);
 		display: flex;
-		left: 0;
 		opacity: 0;
 		padding: var(--grid-gutter);
 		position: absolute;
 		right: 0;
+		left: 0;
 		top: 100%;
-		transform: translateX(-100%);
+		transform: translateY(0);
 		transform-origin: 100% 0;
 		transition: var(--transition-time);
 		visibility: hidden;
@@ -37,7 +37,6 @@
 
 		&.-is-active {
 			opacity: 1;
-			transform: translateY(0);
 			visibility: visible;
 		}
 	}

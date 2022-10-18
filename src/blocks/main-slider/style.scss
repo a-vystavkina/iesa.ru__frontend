@@ -23,24 +23,18 @@
 
 	&__form {
 		width: 100%;
-		padding: 2em 0 2.5em;
 	}
 
-	&__title {
-		text-transform: none;
-    width: 85%;
-	}
-
-	&__desc {
+	&__label {
     display: flex;
     justify-content: center;
 		font-size: var(--font-size--small);
 		font-weight: 500;
     background: #A1D7E0;
     border-radius: 100px;
-    padding: 1px 16px;
-    width: 138px;
+    padding: .25em 1em;
     margin-bottom: 11px;
+		max-width: 158px;
 	}
 
 	@media (min-width: $screen-md) {
@@ -57,13 +51,9 @@
       padding-top: 41px;
     }
 
-		&__title {
-      width: 50%;
+		&__info {
+			width: 50%;
 		}
-
-    &__desc {
-      width: 158px;
-    }
 	}
 
 	@media (min-width: $screen-lg) {
@@ -79,15 +69,11 @@
 
 		&__form {
 			display: flex;
-			width: 65%;
+			width: 55%;
 		}
 
-		&__title {
-      width: 55%;
+		&__info {
+			width: 56%;
 		}
-
-    &__desc {
-      width: 158px;
-    }
 	}
 }

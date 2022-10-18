@@ -1,11 +1,10 @@
-.our-cases {
+.cases {
   display: block;
   width: 100%;
 
   &__text {
-    font-weight: 300;
     font-size: var(--font-size--vast);
-    line-height: 1.35;
+    line-height: var(--line-height);
     text-align: center;
     margin-bottom: 2.5em;
   }

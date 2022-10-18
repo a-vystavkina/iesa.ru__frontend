@@ -111,6 +111,7 @@ const app = {
         this.filterBlocks();
 
         this.flickitySet = new FlickitySet('[data-flickity-options]');
+        
     }
 };
 

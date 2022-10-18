@@ -61,6 +61,18 @@
         position: relative;
     }
   }
+  
+  &--half-padding-top {
+    padding-top: 1rem !important;
+  }
+
+  &--half-padding-bottom {
+    padding-bottom: 2rem !important;
+  }
+
+  &--double-padding-bottom {
+    padding-bottom: 8.5rem !important;
+  }
 
   @media (min-width: $screen-md) {
     padding-bottom: 4.125rem;

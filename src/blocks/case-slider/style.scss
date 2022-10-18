@@ -35,6 +35,9 @@
 			  left: 87%;
 			}
 			@media (min-width: $screen-lg) {
+			  left: 91%;
+			}
+			@media (min-width: $screen-xl) {
 			  left: 85%;
 			}
 		}
@@ -64,6 +67,10 @@
 
 		@media (min-width: $screen-lg) {
       bottom: -80px;
+		}
+
+		@media (min-width: $screen-xl) {
+      bottom: -120px;
 		}
 	}
 

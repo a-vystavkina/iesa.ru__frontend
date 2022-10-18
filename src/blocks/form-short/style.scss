@@ -23,23 +23,24 @@
 		}
 	}
 
-  &__item {
-    margin-bottom: 18px;
+	@media (min-width: $screen-lg) {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		
+		.form-short__field {
+			margin-top: 0;
+			margin-right: 8px;
 
-    @media (min-width: $screen-lg) {
-      display: flex;
-      align-items: center;
-      
-      .form-short__field {
-        margin-top: 0;
-        margin-right: 8px;
+			&:nth-child(n+2) {
+				margin-right: 0;
+			}
 
-        &:last-child {
-          margin-right: 0;
-        }
-      }
-    }
-  }
+			&:last-child {
+				margin-top: 2em;
+			}
+		}
+	}
 
   .field-text {
     color: rgba(255, 255, 255, 0.47);
@@ -47,7 +48,7 @@
     &__input {
       background: rgba(41, 146, 208, 0.5);
       border: 1px solid var(--color-white);
-      padding: .75em 0 .75em 1em;
+      padding: 1em 0 .5em 1em;
       outline: none;
       color: var(--color-white);
     }
@@ -79,49 +80,19 @@
 	}
 
   .field-checkbox {
-    &__input-wrap {
-      display: flex;
-      align-items: center;
-    }
-    
-    &__input {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-    }
+		margin-top: 2em;
   
     &__help-text {
-      font-size: var(--font-size--tiny);
       color: var(--color-white);
-      font-weight: 400;
-      line-height: 1.25;
-      margin-left: 30px;
-      position: relative;
-      width: 68%;
-      & a {
-        color: inherit;
-      }
-  
-      &::before {
-        content: "";
-        width: 20px;
-        height: 20px;
-        position: absolute;
-        top: 5px;
-        left: -30px;
-        background-image: url(../../blocks/form-short/images/checkbox-no-active.png);
-        background-repeat: no-repeat;
-        background-position: center center;
-        background-size: 20px;
-      }
-  
-      @media (min-width: $screen-lg) {
+			width: 70%;
+
+			@media (min-width: $screen-md) {
+        width: 85%;
+			}
+
+			@media (min-width: $screen-lg) {
         width: 48%;
-      }
+			}
     }
-  }
-  
-  .field-checkbox__input:checked ~ .field-checkbox__help-text::before {
-    background-image: url(../../blocks/form-short/images/checkbox-active.jpg);
   }
 }

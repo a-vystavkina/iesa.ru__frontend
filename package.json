@@ -39,7 +39,6 @@
   "dependencies": {
     "@fancyapps/ui": "^4.0.31",
     "flickity": "^3.0.0",
-    "flickity-fade": "^2.0.0",
     "multipipe": "^4.0.0",
     "normalize.css": "^8.0.1"
   }

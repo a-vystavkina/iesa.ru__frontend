@@ -1,16 +1,17 @@
 form.form.js-hidden-captcha(action="", type="post")
-  .form__item
-    label.field-text.field-text--transparent.form__field.form__field-address
-      span.field-text__input-wrap
-        span.field-text__input--margin-bg Адрес сайта
-        input.field-text__form-input.js-moving-placeholder(type="text", placeholder="Адрес сайта")
-    label.field-text.field-text--transparent.form__field.form__field-connection
-      span.field-text__input-wrap
-        span.field-text__input--margin-sm Со мной можно связаться по телефону
-        input.field-text__form-input.js-moving-placeholder(type="tel", placeholder="+7 919 981 75 67")
+  label.field-text.field-text--transparent.form__field.form__field-address
+    span.field-text__input-wrap
+      span.field-text__input--margin-bg Адрес сайта
+      input.field-text__form-input.field-text__form-input--size-bg.js-moving-placeholder(type="text")
+  label.field-text.field-text--transparent.form__field.form__field-connection
+    span.field-text__input-wrap
+      span.field-text__input--margin-sm Со мной можно связаться по телефону
+      input.field-text__form-input.field-text__form-input--size-sm.js-moving-placeholder(type="tel")
   label.field-checkbox.form__field
     span.field-checkbox__input-wrap
       input.field-checkbox__input(type='checkbox')
-      span.field-checkbox__help-text Нажимая на кнопку я соглашаюсь с <a href="#">политикой конфидициальности</a>
-  div.form__field.-ta-sm
+      span.field-checkbox__name
+      span.field-checkbox__help-text
+        | Нажимая на кнопку я соглашаюсь с <a href="#">политикой конфиденциальности</a>
+  div.form__field.-ta-c--sm
     div.button.button--primary-darken.js-hidden-button Отправить

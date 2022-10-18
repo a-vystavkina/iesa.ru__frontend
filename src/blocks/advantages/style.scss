@@ -1,15 +1,17 @@
-.our-advantages {
+@use "sass:math";
+
+.advantages {
   padding: 0;
   margin: 0;
  
-  &__circle-main {
+  &__logo {
     display: none;
   }
 
   @media (min-width: $screen-md) {
     margin: 10em auto 15em;
 
-    &__circle-main {
+    &__logo {
       display: block;
       position: absolute;
       top: 65%;
@@ -18,85 +20,25 @@
     }
   }
 
+  @media (min-width: $screen-md) and (max-width: $screen-lg) {
+    &__logo {
+      top: 65%;
+      left: 33%;
+    }
+  }
+
   @media (min-width: $screen-lg) {
-    &__circle-main {
-      display: block;
-      position: absolute;
+    &__logo {
       top: 65%;
       left: 35%;
-      transform: translateX(50%);
     }
   }
-}
 
-@mixin distribute-on-circle( 
-  $nb-items,
-  $circle-size,
-  $item-size,
-  $class-for-IE: false
-) {
-  $half-item: calc($item-size / 2);
-  $half-parent: calc($circle-size / 2);
-  
-  position: relative;
-  width:  $circle-size;
-  height: $circle-size;
-  box-sizing: content-box;
-  
-  > * {
-    display: block;
-    position: absolute;
-    top:  50%; 
-    left: 20%;
-    transform: translateX(50%);
-  }
-  
-  $angle: calc(360 / $nb-items);
-  $rot: 270;
-
-  @for $i from 1 through $nb-items {
-    @if not $class-for-IE {
-      > :nth-of-type(#{$i}) {
-        transform: rotate($rot * 1deg) translate($half-parent) rotate($rot * -1deg);
-      }
-    } @else {
-      > .#{$class-for-IE}#{$i} {
-        $mt: sin($rot * pi() / 180) * $half-parent - $half-item;
-        $ml: cos($rot * pi() / 180) * $half-parent - $half-item;
-        margin: $ml 0 0 $mt;
-      }
+  @media (min-width: $screen-xl) {
+    &__logo {
+      top: 65%;
+      left: 36%;
     }
-
-    $rot: ($rot + $angle);
-  }
-}
-
-.circle-container {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-
-  @media (min-width: $screen-md) {
-    @include distribute-on-circle(6, 17em, 6em, false);
-    margin: 0 auto;
-  }
-
-  @media (min-width: $screen-lg) {
-    @include distribute-on-circle(6, 20em, 6em, false); 
-  }
-}
-
-.circle {
-  display: flex;
-  margin-bottom: 1em;
-
-  &:last-child {
-    margin-bottom: 0;
-  }
-
-  @media (min-width: $screen-md) {
-    display: block;
-    margin-bottom: 0;
   }
 
   &__icon {
@@ -120,23 +62,25 @@
       width: 100%; 
       fill: var(--color-primary);
     }
-  }
 
-  &__count {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: -2px;
-    right: -5px;
-    width: 20px;
-    height: 20px;
-    background-color: var(--color-primary);
-    border-top-right-radius: 7px;
-    border-bottom-left-radius: 7px;
-    color: var(--color-white);
-    font-size: var(--font-size--medium);
-    font-weight: 500;
+    &:before {
+      content: counter(tidbit-counter);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      top: -2px;
+      right: -5px;
+      width: 20px;
+      height: 20px;
+      background-color: var(--color-primary);
+      border-top-right-radius: 7px;
+      border-bottom-left-radius: 7px;
+      color: var(--color-white);
+      font-size: var(--font-size--medium);
+      font-weight: 500;
+      z-index: 10
+    }
   }
 
   &__info {
@@ -146,14 +90,13 @@
       &-title {
         font-weight: 500;
         font-size: var(--font-size--vast);
-        line-height: 1.35;
+        line-height: var(--line-height);
         margin-bottom: .5em;
       }
   
       &-desc {
-        font-weight: 300;
         font-size: var(--font-size);
-        line-height: 1.35;
+        line-height: var(--line-height);
       }
       
       @media (min-width: $screen-md) {
@@ -230,5 +173,63 @@
           width: 260px;
         }
       }
+  }
+}
+
+@mixin distribute-on-circle( 
+  $nb-items,
+  $circle-size
+) {
+  $half-parent: math.div($circle-size, 2);
+  
+  position: relative;
+  width:  $circle-size;
+  height: $circle-size;
+  box-sizing: content-box;
+  
+  > * {
+    display: block;
+    position: absolute;
+    top:  50%; 
+    left: 20%;
+    transform: translateX(50%);
+  }
+  
+  $angle: math.div(360, $nb-items);
+  $rot: 270;
+
+  @for $i from 1 through $nb-items {
+      > :nth-of-type(#{$i}) {
+        transform: rotate($rot * 1deg) translate($half-parent) rotate($rot * -1deg);
+      }
+
+    $rot: ($rot + $angle);
+  }
+}
+
+.circle {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  counter-reset: my-counter;
+
+  @media (min-width: $screen-md) {
+    @include distribute-on-circle(6, 17em);
+    margin: 0 auto;
+  }
+
+  &__item {
+    display: flex;
+    margin-bottom: 1em;
+    counter-increment: tidbit-counter;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    @media (min-width: $screen-md) {
+      display: block;
+      margin-bottom: 0;
+    }
   }
 }

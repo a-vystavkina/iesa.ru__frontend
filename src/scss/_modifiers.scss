@@ -6,16 +6,13 @@
 .-fw-sb { font-weight: 500; }
 .-fw-n { font-weight: normal; }
 
-.-ta-l { text-align: left; }
 .-ta-c { text-align: center !important; }
-.-ta-r { text-align: right; }
-.-ta-sm {
-	text-align: center;
-	@media (min-width: $screen-md) {
-    text-align: left; 
-	}
+
+@media (max-width: $screen-md) {
+  .-ta-c--sm {text-align: center;}
 }
-.-no-tt {text-transform: none;}
+
+.-tt-none {text-transform: none;}
 
 .-fs-tiny { font-size: var(--font-size--tiny) }
 .-fs-small { font-size: var(--font-size--small) }
@@ -27,8 +24,6 @@
 .-no-padding { padding: 0; }
 .-no-padding-bottom { padding-bottom: 0 !important; }
 .-no-padding-top { padding-top: 0 !important; }
-с { padding-top: 1rem !important; }
-.-half-padding-bottom { padding-bottom: 2rem !important; }
 
 .-ws-nowrap { white-space: nowrap }
 

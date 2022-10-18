@@ -52,11 +52,10 @@
 
 .portfolio
   each item, i in dataPortfolio
-    .portfolio__item
+    a.portfolio__link(href="#").portfolio__item
       .portfolio__img
-        img(src=item.image)
-      .portfolio__title 
-        a.portfolio__link(href="#") !{item.title}
+        img(src=item.image height="272" width="374" alt="")
+      .portfolio__title  !{item.title}
 
 button.button.button--mint.-ta-c#loadmore Показать еще
 

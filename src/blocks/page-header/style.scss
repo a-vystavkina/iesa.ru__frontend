@@ -2,6 +2,8 @@
 
   $block-name: &; // #{$block-name}__element
   position: relative;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow);
 
   &__inner {
     display: flex;
@@ -9,15 +11,10 @@
     justify-content: center;
     background: inherit;
     padding-bottom: .5em;
-    padding-top: .75em;
+    padding-top: .75em;;
 
-    &--hr {
+    &-border {
       border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    }
-
-    &--sw {
-      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-      box-shadow: var(--shadow);
     }
 
     @media (min-width: $screen-md) {
@@ -30,10 +27,10 @@
   &__inner-bottom {
     display: flex;
     align-items: center;
-    justify-content: space-between;
     background: inherit;
     padding-top: var(--grid-gutter);
     padding-bottom: var(--grid-gutter);
+    position: relative;
   }
 
   &__logo {
@@ -56,6 +53,13 @@
 
     @media (min-width: $screen-md) {
       padding-left: 1.625em;
+    }
+  }
+
+  @media (max-width: $screen-md - 1) {
+    &__search {
+      margin-left: auto;
+      margin-right: 2em;
     }
   }
 }
