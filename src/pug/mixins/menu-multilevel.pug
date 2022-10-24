@@ -15,7 +15,7 @@ mixin menu-list(data, blockName)
         a(href=item.url ? item.url : '#', class=blockName + '__link', class=blockName + '__link--lvl' + data.level)
           = item.title
           if (item.iconID)
-            svg: use(xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href='#' + item.iconID)
+            svg
 
 
         if (item.submenu && item.dropdownBtn)
@@ -61,9 +61,9 @@ mixin footer-menu__list(data, blockName)
         if (item.submenu)
           if (item.submenu.submenuWrap)
             -
-              let cssClassSubmenu = blockName + '__submenu--lvl' + data.level;
+              let cssClassSubmenu = blockName;
               if (item.submenu.cssMod)
-                cssClassSubmenu += ' ' + blockName + '__submenu--' + item.submenu.cssMod;
+                cssClassSubmenu += '__submenu--' + item.submenu.cssMod;
             div(class=cssClassSubmenu)
               +footer-menu__list(item.submenu, blockName)
           else

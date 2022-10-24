@@ -43,3 +43,9 @@
 		}
 	}
 }
+
+span.breadcrumb__link {
+  color: var(--color-primary);
+	text-decoration-color: currentColor;
+	text-decoration: none;
+}

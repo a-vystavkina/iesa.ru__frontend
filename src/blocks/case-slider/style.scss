@@ -26,29 +26,55 @@
 			border: 1px solid var(--color-primary--darken);
 			width: 32px;
 			height: 32px;
+			position: relative;
 		}
 		&.previous {
 			right: 0;
-			left: 32%;
+			left: 27%;
 			transform: translateX(50%);
-			@media (min-width: $screen-md) {
-			  left: 87%;
+
+			@media (max-width: $screen-md) {
+			  &:before {
+					content: 'Пред. кейс';
+					position: absolute;
+					right: 40px;
+					top: 0;
+					color: var(--color-black);
+				}
 			}
+
+			@media (min-width: $screen-md) {
+			  left: 90%;
+			}
+
 			@media (min-width: $screen-lg) {
 			  left: 91%;
 			}
+
 			@media (min-width: $screen-xl) {
-			  left: 85%;
+			  left: 87%;
 			}
 		}
 		&.next {
-			right: 37%;
+			left: 42%;
 			transform: translateX(50%);
-			@media (min-width: $screen-md) {
-			  right: 2%;
+
+			@media (max-width: $screen-md) {
+				&:after {
+					content: 'След. кейс';
+					position: absolute;
+					left: 40px;
+					top: 0;
+					color: var(--color-black);
+				}
 			}
-			@media (min-width: $screen-lg) {
-			  right: 0;
+
+			@media (min-width: $screen-md) {
+			  left: 92%;
+			}
+
+			@media (min-width: $screen-xl) {
+			  left: 90%;
 			}
 		}
 
