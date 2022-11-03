@@ -17,8 +17,8 @@
 		}
 
 		@media (min-width: $screen-lg) {
-			&--button {
-				text-align: center;
+			&--btn {
+				margin-top: 2em;
 			}
 		}
 	}
@@ -35,10 +35,6 @@
 			&:nth-child(n+2) {
 				margin-right: 0;
 			}
-
-			&:last-child {
-				margin-top: 2em;
-			}
 		}
 	}
 
@@ -52,6 +48,10 @@
       outline: none;
       color: var(--color-white);
     }
+
+		&__help-text {
+			position: absolute;
+		}
   }
 
 	&--flex form {

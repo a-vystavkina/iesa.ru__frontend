@@ -13,6 +13,20 @@
 		width: calc(70% - var(--grid-gutter) / 2);
 		margin-right: 1.5em;
 
+		@media (max-width: $screen-md) {
+			&:nth-child(1) {
+				transform: translateX(25%) !important;
+			}
+	
+			&:nth-child(2) {
+				transform: translateX(135%) !important;
+			}
+	
+			&:nth-child(3) {
+				transform: translateX(245%) !important;
+			}
+		}
+
 		&:last-child {
 			margin-right: 0;
 		}
@@ -20,6 +34,8 @@
 		&:hover {
 			box-shadow: var(--shadow);
 		}
+
+		
 	}
 
 	&__title {

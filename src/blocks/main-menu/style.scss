@@ -23,6 +23,12 @@
 			#{$block-name}__item--lvl1:hover &,
 			#{$block-name}__item--lvl1#{$block-name}__item--selected & {
 				color: var(--color-gray);
+        @media (min-width: $screen-md) {
+          & svg {
+						display: block;
+						background-image: url("data:image/svg+xml;charset=utf-8,<svg width='12' height='8' viewBox='0 0 12 8' xmlns='http://www.w3.org/2000/svg'><path fill-rule='evenodd' clip-rule='evenodd' d='M10.59 0.590027L6 5.17003L1.41 0.590027L0 2.00003L6 8.00003L12 2.00003L10.59 0.590027Z' fill='rgb(164, 173, 180)'/></svg>");
+					}
+				}
 			}
 
 			& svg {
@@ -110,11 +116,10 @@
 				padding: .5em 0 .75em 1.5em;
 
 				#{$block-name}__item--lvl1:hover &,
-				#{$block-name}__item--lvl1#{$block-name}__item--selected & {
+				#{$block-name}__item--lvl1 #{$block-name}__item--selected & {
 					color: var(--color-gray);
 				}
 			}
-
 
 			&--lvl2 {
 				padding: .5em 1.5em .75em 2.25em;

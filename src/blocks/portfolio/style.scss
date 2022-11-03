@@ -17,25 +17,16 @@
     &:hover,
     &:active {
       color: var(--color-white);
+      transition: .3s;
     }
   }
 
   &__item {
     border-radius: .625em;
-    display: none;
     width: calc(90% - var(--grid-gutter) / 2);
     min-height: 100%;
     margin: 0 auto 20px;
     transition: var(--transition-time);
-
-    &:nth-child(1),
-    &:nth-child(2),
-    &:nth-child(3),
-    &:nth-child(4),
-    &:nth-child(5),
-    &:nth-child(6) {
-      display: block;
-    }
 
     &:last-child {
       margin-bottom: 0;
@@ -66,6 +57,7 @@
 		&:active {
       color: var(--color-white);
       background-color: var(--color-mint);
+      transition: .3s;
     }
   }
 

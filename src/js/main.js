@@ -98,12 +98,11 @@ const app = {
         Utils.maskPhone('[type=tel]:not(.form__input)');
         Utils.replaceLink('data-href');
 
-        SvgLoad.init((window.location.hostname === 'localhost')?'/images/icons.svg':'/local/templates/pixelplus.ru_2021/images/icons.svg');
+        SvgLoad.init((window.location.hostname === 'localhost')?'/images/icons.svg':'/local/templates/iesa.ru/images/icons.svg');
 
         MovingPlaceholder.init('.js-moving-placeholder', 'moving-placeholder');
 
         ToggleBlock.init('.header-search');
-
 
         const mainMenu = new MobileMenu('.main-menu', '.page-nav');
         const footerMenu = new MobileMenu('.footer-menu');
@@ -111,7 +110,15 @@ const app = {
         this.filterBlocks();
 
         this.flickitySet = new FlickitySet('[data-flickity-options]');
-        
+
+        if (typeof tippy !== 'undefined') {
+            tippy('[data-tippy-content]',{
+                animation: 'shift-toward',
+                theme: 'light',
+                allowHTML: true,
+                interactive: true
+            });
+        }
     }
 };
 
@@ -129,18 +136,3 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 })
-
-const loadmore = document.querySelector('#loadmore');
-    let currentItems = 3;
-    loadmore.addEventListener('click', (e) => {
-        const elementList = [...document.querySelectorAll('.portfolio .portfolio__item')];
-        for (let i = currentItems; i < currentItems + 3; i++) {
-            if (elementList[i]) {
-                elementList[i].style.display = 'block';
-            }
-        }
-        currentItems += 3;
-        if (currentItems >= elementList.length) {
-            event.target.style.display = 'none';
-        }
-    })
