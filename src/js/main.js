@@ -5,6 +5,7 @@ import SvgLoad from "./classes/SvgLoad"
 import MovingPlaceholder from "./classes/MovingPlaceholder"
 import Utils from "./classes/Utils"
 import HiddenCaptcha from "./classes/HiddenCaptcha"
+import $ from "jquery";
 
 const app = {
     /**
@@ -103,6 +104,9 @@ const app = {
         MovingPlaceholder.init('.js-moving-placeholder', 'moving-placeholder');
 
         ToggleBlock.init('.header-search');
+        ToggleBlock.init('.vacancies');
+        ToggleBlock.init('.faq');
+        
 
         const mainMenu = new MobileMenu('.main-menu', '.page-nav');
         const footerMenu = new MobileMenu('.footer-menu');
@@ -110,15 +114,6 @@ const app = {
         this.filterBlocks();
 
         this.flickitySet = new FlickitySet('[data-flickity-options]');
-
-        if (typeof tippy !== 'undefined') {
-            tippy('[data-tippy-content]',{
-                animation: 'shift-toward',
-                theme: 'light',
-                allowHTML: true,
-                interactive: true
-            });
-        }
     }
 };
 

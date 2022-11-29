@@ -27,9 +27,17 @@
     min-height: 100%;
     margin: 0 auto 20px;
     transition: var(--transition-time);
+    background-color: var(--color-primary--darken);
 
     &:last-child {
       margin-bottom: 0;
+    }
+
+    &:hover,
+    &:active {
+      background-color: var(--color-mint);
+      color: var(--color-white);
+      transition: .3s;
     }
   }
 
@@ -37,8 +45,8 @@
     & img {
       max-width: 100%;
       height: auto;
-      border-top-right-radius: 12px;
-      border-top-left-radius: 12px;
+      border-top-right-radius: .5em;
+      border-top-left-radius: .5em;
     }
   }
 
@@ -50,15 +58,7 @@
 		padding: 1em .75em .75em;
     border-bottom-right-radius: 12px;
     border-bottom-left-radius: 12px;
-    background-color: var(--color-primary--darken);
     max-width: 374px;
-
-    &:hover,
-		&:active {
-      color: var(--color-white);
-      background-color: var(--color-mint);
-      transition: .3s;
-    }
   }
 
   @media (min-width: $screen-sm - 1) {

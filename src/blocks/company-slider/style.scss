@@ -1,0 +1,41 @@
+.company-slider {
+  display: block;
+  width: 90%;
+  margin: 0 auto;
+
+  &__slide {
+    & img {
+      width: 100%;
+    }
+  }
+
+  .flickity-prev-next-button {
+    &.previous,
+    &.next {
+      background: var(--color-primary--darken);
+      border: 1px solid var(--color-primary--darken);
+      color: var(--color-white);
+      width: 37px;
+      height: 37px;
+    }
+  }
+
+  .flickity-button:disabled {
+    opacity: .5;
+  }
+
+  .flickity-page-dot:focus,
+  .flickity-button:focus {
+    outline: 0;
+    box-shadow: none;
+  }
+
+  .flickity-page-dot.is-selected {
+    background: var(--color-primary--darken);
+  }
+
+  @media (min-width: $screen-md) {
+    width: 60%;
+  }
+
+}

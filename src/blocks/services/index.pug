@@ -18,7 +18,7 @@
 	]
 .tile-slider.services(data-flickity-options='{ "cellAlign": "left", "prevNextButtons": false, "groupCells": true, "initialIndex": "1", "watchCSS": true, "lazyLoad": true }')
 	each item, i in dataServices
-		.services__item
+		a.services__item(href='#')
 			.services__title !{item.title}
 			.services__price !{item.price}
 			if (item.image)

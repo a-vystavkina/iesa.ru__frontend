@@ -1,0 +1,117 @@
+.vacancies-block {
+  background-color: var(--color-mint);
+  padding: 1.75em;
+  color: var(--color-white);
+  font-style: italic;
+
+  &__resume {
+    font-size: var(--font-size-h3);
+
+    a {
+      color: var(--color-black);
+    }
+  }
+
+  &__text {
+    font-size: var(--font-size--small);
+    margin-top: .75em;
+  }
+}
+
+.vacancies {
+  $block-name: &; // #{$block-name}__element
+  background-color: var(--color-gray--lighten);
+  margin-top: 2em;
+
+  &__item {
+    padding: 2em 1em;
+  }
+
+  &__description {
+    display: block; 
+  }
+
+  &__img {
+    width: 85px;
+    height: 85px;
+    border-radius: 3px;
+    margin: 0 auto 1em;
+
+    & img {
+      width: 100%;
+    }
+  }
+
+  &__info {
+    max-width: 100%;
+    margin-bottom: 1em;
+  }
+
+  &__title {
+    font-size: var(--font-size--large);
+    font-weight: 500;
+    margin-bottom: .5em;
+    line-height: var(--line-height);
+  }
+
+  &__date {
+    color: var(--color-gray);
+    font-size: var(--font-size--small);
+    margin-bottom: .5em;
+    line-height: var(--line-height);
+  }
+
+  &__text {
+    font-size: var(--font-size--medium);
+    line-height: var(--line-height);
+  }
+
+  &__salary {
+    border-left: 1px dashed var(--color-gray--dark);
+    max-width: 100%;
+    color: var(--color-gray);
+    font-size: var(--font-size--large);
+    padding: 1.25em 0 1.25em 1.25em;
+    line-height: var(--line-height);
+  }
+
+  &__show-more {
+    border: none;
+    text-decoration: underline;
+    color: var(--color-primary);
+    font-size: var(--font-size-h3);
+    margin-top: 1em;
+    cursor: pointer;
+  }
+
+  &__requirements {
+		display: none;
+    padding: 2em 0 0 0;
+    transition: var(--transition-time);
+
+		&.-is-active {
+			display: block;
+		}
+	}
+
+  @media (min-width: $screen-md) {
+    &__description {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;    
+    }
+
+    &__img {
+      margin: 0;
+    }
+
+    &__info {
+      max-width: 50%;
+      margin-bottom: 0;
+    }
+
+    &__salary {
+      max-width: 20%;
+    }
+  }
+}

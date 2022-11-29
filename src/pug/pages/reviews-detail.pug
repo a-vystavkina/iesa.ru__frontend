@@ -1,0 +1,21 @@
+extends ../layout.pug
+
+block meta
+  title Статья
+  meta(name='description', content='')
+
+block content
+  .wide-block.-no-padding-top
+    .page-container
+      .review-detail
+        a.review-detail__link(href="#") < Назад к списку отзывов
+        h1.h2 Отзыв: Микрофлекс-сервис
+        .review-detail__item
+          .review-detail__img
+            img(src="assets/logo-microflex.jpg" width="170" height="49" alt="")
+          .review-detail__info
+            .review-detail__text Компания ООО «Микрофлекс-сервис» представляет на российском рынке продукцию завода MICROFLEX (Бельгия), входящего в состав европейского холдинга Watts Industries Europe B.V., – предизолированные гибкие системы трубопроводов MICROFLEX (Микрофлекс) для бесканальной подземной прокладки наружных тепловых сетей (труб отопления), а также трубопроводов для горячего и холодного водоснабжения и напорной канализации.
+        .review-detail__letter
+          img(src="assets/letter.jpg" alt="")
+
+        

@@ -1,0 +1,41 @@
+.vacancies-advantages {
+  display: block;
+  margin: 45px auto;
+
+  &__item {
+    margin-bottom: 1.5em;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    @media (min-width: $screen-md) {
+      width: calc(20% - var(--grid-gutter)/ 2);
+      margin-bottom: 0;
+    }
+  }
+
+  &__img {
+    border-radius: 50%;
+    background-color: var(--color-primary);
+    width: 85px;
+    height: 85px;
+    margin: 0 auto;
+    margin-bottom: 1.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__title {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: var(--font-size--tiny);
+  }
+
+  @media (min-width: $screen-md) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

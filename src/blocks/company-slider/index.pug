@@ -1,0 +1,39 @@
+
+-
+  let dataCompany = [
+    {
+      "image": "assets/mission-pres__0000_1.jpg"
+    },
+    {
+      "image": "assets/mission-pres__0001_2.jpg"
+    },
+    {
+      "image": "assets/mission-pres__0002_3.jpg"
+    },
+    {
+      "image": "assets/mission-pres__0003_4.jpg"
+    },
+    {
+      "image": "assets/mission-pres__0004_5.jpg"
+    },
+    {
+      "image": "assets/mission-pres__0005_6.jpg"
+    },
+    {
+      "image": "assets/mission-pres__0006_7.jpg"
+    },
+    {
+      "image": "assets/mission-pres__0007_8.jpg"
+    },
+    {
+      "image": "assets/mission-pres__0008_9.jpg"
+    },
+    {
+      "image": "assets/mission-pres__0009_00.jpg"
+    }
+  ]
+.company-slider(data-flickity-options='{ "draggable": false, "cellAlign": "left", "prevNextButtons": true, "groupCells": false }')
+  each item, i in dataCompany
+    .company-slider__slide
+      if (item.image)
+        img(src=item.image alt="")

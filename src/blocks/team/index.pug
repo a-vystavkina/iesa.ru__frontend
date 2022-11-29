@@ -1,0 +1,60 @@
+-
+  let dataTeam = [
+    {
+      "title": 'Демьянов Алексей',
+      "position": 'Генеральный директор',
+      "description": 'Инновационный бизнес = гениальные разработчики + профессиональные продавцы',
+      "image": "assets/dyto_kkdmiqvc.jpg"
+    },
+    {
+      "title": 'Макан Марина',
+      "position": 'Коммерческий директор',
+      "description": 'Будущее есть работа мышления и действия.',
+      "image": "assets/ikamu.jpg"
+    },
+    {
+      "title": 'Богданов Дмитрий',
+      "position": 'Руководитель отдела реинжиниринга',
+      "description": 'Не конкурируйте с вашим агентством в творчестве. Зачем держать собаку и самому лаять? © Дэвид Огилви',
+      "image": "assets/owyc_hxzvyfau.jpg"
+    },
+    {
+      "title": 'Воробьев Дмитрий',
+      "position": 'Руководитель отдела интернет-маркетинга',
+      "description": 'Гораздо больше людей сдались, чем потерпели поражение © Генри Форд',
+      "image": "assets/rcfo_okaqiqmac.jpg"
+    },
+    {
+      "title": 'Гелейшев Павел',
+      "position": 'Технический директор',
+      "description": 'Будущее есть работа мышления и действия.',
+      "image": "assets/qxoz_gvudhphk.jpg"
+    },
+    {
+      "title": 'Орлова Мария',
+      "position": 'Менеджер интернет-проектов',
+      "description": 'Творчество — момент создания будущего в настоящем.',
+      "image": "assets/onvf_othapw.jpg"
+    }
+  ]
+.team(data-flickity-options='{ "draggable": false, "cellAlign": "left", "prevNextButtons": true, "groupCells": false }')
+  each item, i in dataTeam
+    .team__slide
+      .team__info
+        .team__title !{item.title}
+        .team__position !{item.position}
+        .team__desc !{item.description}
+        a.team__blog(href="#") Блог
+      if (item.image)
+        .team__img
+          img(src=item.image width="295" height="295")
+
+.tile-slider.team-list(data-flickity-options='{ "cellAlign": "left", "prevNextButtons": false, "groupCells": true, "watchCSS": true, "lazyLoad": true }')
+  each item, i in dataTeam
+    .team-list__item
+      if (item.image)
+        .team-list__img
+          img(src=item.image height="140")
+      .team-list__info
+        .team-list__title !{item.title}
+        .team-list__position !{item.position}

@@ -1,0 +1,125 @@
+.team {
+  &__slide {
+    display: flex;
+    width: 100%;
+    justify-content: space-around; 
+    align-items: center;
+  }
+
+  &__info {
+    max-width: 400px;
+    text-align: center;
+  }
+
+  &__title {
+    font-size: var(--font-size-h3);
+    line-height: var(--line-height);
+    font-weight: 500;
+    margin-bottom: .25em;
+  }
+
+  &__position {
+    color: var(--color-gray);
+    font-size: var(--font-size--medium);
+    line-height: var(--line-height);
+    margin-bottom: .75em;
+  }
+
+  &__desc {
+    font-size: var(--font-size--medium);
+    line-height: var(--line-height);
+    font-style: italic;
+    margin-bottom: 1.75em;
+  }
+
+  &__blog {
+    font-size: var(--font-size--medium);
+    line-height: var(--line-height);
+    font-weight: 500;
+  }
+
+  &__img {
+    display: none;
+  }
+
+  @media (min-width: $screen-md) {
+    &__img {
+      display: block;
+    }
+  }
+
+  .flickity-page-dots {
+    display: none;
+  }
+
+  .flickity-button:focus {
+    box-shadow: none;
+  }
+
+  .flickity-prev-next-button {
+    top: 0;
+
+    @media (min-width: $screen-md) {
+      top: 50%;
+    }
+  }
+}
+
+.team-list {
+  margin-top: 2em; 
+
+  &__item {
+    transition: var(--transition-time);
+    text-align: center;
+    background-color: var(--color-gray--lighten);
+    margin-right: 1em;
+    width: 80%;
+
+    &:hover {
+      border: 1px solid var(--color-gray--lighter);
+      box-shadow: 1px 1px 4px rgb(0 0 0 / 30%);
+    }
+  }
+
+  &__img {
+    & img {
+      width: 100%;
+    }
+  }
+
+  &__info {
+    padding: 0 .5em;
+    height: 80px;
+  }
+
+  &__title {
+    font-size: var(--font-size--vast);
+    line-height: var(--line-height);
+    font-weight: 500;
+    margin-bottom: .25em;
+  }
+
+  &__position {
+    color: var(--color-gray--dark);
+    font-size: var(--font-size--medium);
+    line-height: var(--line-height);
+    margin-bottom: .75em;
+  }
+
+  @media (min-width: $screen-md) {
+    display: flex;
+    flex-wrap: wrap;
+
+    &__item {
+      width: calc(20% - var(--grid-gutter) / 2);
+
+      &:nth-child(n+5) {
+        margin-top: 1em;
+      }
+    }
+
+    &__info {
+      height: auto;
+    }  
+  }
+}

@@ -1,0 +1,31 @@
+
+-
+  let dataVacancies = [
+    {
+      "title": 'Интересная работа',
+      "image": "../../blocks/vacancies-advantages/images/icon1.png"
+    },
+    {
+      "title": 'Устройство по ТК',
+      "image": "../../blocks/vacancies-advantages/images/icon2.png"
+    },
+    {
+      "title": 'Возможность обучения',
+      "image": "../../blocks/vacancies-advantages/images/icon3.png"
+    },
+    {
+      "title": 'Профессиональный рост',
+      "image": "../../blocks/vacancies-advantages/images/icon5.png"
+    },
+    {
+      "title": 'Возможен гибкий график',
+      "image": "../../blocks/vacancies-advantages/images/icon6.png"
+    }
+  ]
+.vacancies-advantages
+  each item, i in dataVacancies
+    .vacancies-advantages__item
+      if (item.image)
+        .vacancies-advantages__img
+          img(src=item.image alt="")
+      .vacancies-advantages__title !{item.title}

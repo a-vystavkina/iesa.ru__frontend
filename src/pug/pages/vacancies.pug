@@ -1,0 +1,15 @@
+extends ../layout.pug
+
+block meta
+  title Вакансии
+  meta(name='description', content='')
+
+block content
+  .wide-block.-no-padding-top
+    .page-container
+      h1.h2 Вакансии
+      p
+        | Наш коллектив — молодая дружная команда, которая готова делиться своими знаниями и опытом. Каждый из нас прошел свой путь открытий и решений. Мнение любого сотрудника ценится и учитывается наравне с остальными. Мы действительно любим свою работу!
+      include ../../blocks/vacancies-advantages/index
+      h2.h3 Открытые вакансии
+      include ../../blocks/vacancies/index

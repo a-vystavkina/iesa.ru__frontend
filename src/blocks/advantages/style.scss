@@ -9,28 +9,27 @@
   }
 
   @media (min-width: $screen-md) {
-    margin: 10em auto 15em;
+    margin: 13em auto 17em;
 
     &__logo {
       display: block;
       position: absolute;
       top: 65%;
-      left: 29%;
+      left: 30%;
       transform: translateX(50%);
     }
   }
 
   @media (min-width: $screen-lg) {
     &__logo {
-      top: 65%;
+      top: 67%;
       left: 35%;
     }
   }
 
   @media (min-width: $screen-xl) {
     &__logo {
-      top: 65%;
-      left: 36%;
+      top: 69%;
     }
   }
 
@@ -173,11 +172,11 @@
   $nb-items,
   $circle-size
 ) {
-  $half-parent: math.div($circle-size, 2);
+  $half-parent: math.div($circle-size, 1.75);
   
   position: relative;
   width:  $circle-size;
-  height: $circle-size;
+  height: 17em;
   box-sizing: content-box;
   
   > * {
@@ -207,7 +206,9 @@
   counter-reset: my-counter;
 
   @media (min-width: $screen-md) {
-    @include distribute-on-circle(6, 17em);
+    height: 0;
+    border-radius: 50%;
+    @include distribute-on-circle(6, 22em);
     margin: 0 auto;
   }
 
